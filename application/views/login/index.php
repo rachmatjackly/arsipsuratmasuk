@@ -35,7 +35,8 @@
                                 <h5 class="card-title">LOGIN</h5>
                             </div>
                             <div class="card-body">
-                                <form method="post" enctype="multipart/form-data" action="<?= base_url() ?>authentication/submitLogin">
+                                <form method="post" enctype="multipart/form-data"
+                                    action="<?= base_url() ?>authentication/submitLogin">
                                     <div class="row">
                                         <div class="col-6">
                                             <div class="form-group">
@@ -64,24 +65,3 @@
                     </div>
                 </div>
             </div>
-            <footer class="footer footer-black  footer-white ">
-                <div class="container-fluid">
-                    <div class="row">
-                        <nav class="footer-nav">
-                            <ul>
-                                <li><a href="https://www.creative-tim.com/license" target="_blank">Creative Tim
-                                        Licenses</a></li>
-                            </ul>
-                        </nav>
-                        <div class="credits ml-auto">
-                            <span class="copyright">
-                                © <script>
-                                document.write(new Date().getFullYear())
-                                </script>, Bootstarp created by Creative Tim. Logic written by Feisal Jauhari
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </footer>
-        </div>
-    </div>
