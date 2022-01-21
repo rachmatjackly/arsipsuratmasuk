@@ -1,18 +1,19 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Authentication extends CI_Controller {
+class Home extends CI_Controller {
 
-    public function __construct()
-    {
-        parent::__construct();
-        $this->load->model('Model_user');
-    }
+    // public function __construct()
+    // {
+    //     parent::__construct();
+    //     $this->load->model('Model_user');
+    // }
 
-	public function login()
+	public function index()
     {
-        $this->load->view('templates/header');
-        $this->load->view('login/index');
+        $data['nav'] = array("active","");
+        $this->load->view('templates/header', $data);
+        $this->load->view('home/index');
         $this->load->view('templates/footer');
     }
 

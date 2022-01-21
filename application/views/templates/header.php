@@ -40,14 +40,14 @@
             </div>
             <div class="sidebar-wrapper">
                 <ul class="nav">
-                    <li>
-                        <a href="index.php">
+                    <li class="<?= $nav[0] ?>">
+                        <a href="<?= base_url() ?>">
                             <i class="nc-icon nc-bank"></i>
                             <p>Home</p>
                         </a>
                     </li>
-                    <li class="active">
-                        <a href="login.php">
+                    <li class="<?= $nav[1] ?>">
+                        <a href="<?= base_url() ?>login">
                             <i class="nc-icon nc-key-25"></i>
                             <p>Login</p>
                         </a>
