@@ -3,10 +3,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Authentication extends CI_Controller {
 
-    // public function __construct()
-    // {
-    //     // $this->load->Model_user();
-    // }
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->model('Model_user');
+    }
 
 	public function login()
     {
@@ -20,6 +21,11 @@ class Authentication extends CI_Controller {
         $username = $this->input->post('username');
         $password = $this->input->post('password');
 
-        $checkUser = $this->Model_user->get();
+        $checkUser = $this->Model_user->getByUsernameAndPassword($username, $password);
+
+        if ($checkUser) {
+            echo 'login';
+        }
+
     }
 }

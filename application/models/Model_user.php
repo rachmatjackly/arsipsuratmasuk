@@ -7,4 +7,11 @@ class Model_user extends CI_Model {
     {
         return $this->db->get('tb_user')->result();
     }
+
+    public function getByUsernameAndPassword($username, $password)
+    {
+        $this->db->where('username', $username);
+        $this->db->where('password', $password);
+        return $this->db->get('tb_user')->result();
+    }
 }
