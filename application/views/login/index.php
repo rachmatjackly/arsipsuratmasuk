@@ -35,7 +35,7 @@
                                 <h5 class="card-title">LOGIN</h5>
                             </div>
                             <div class="card-body">
-                                <form method="post" enctype="multipart/form-data" action="">
+                                <form method="post" enctype="multipart/form-data" action="<?= base_url() ?>authentication/submitLogin">
                                     <div class="row">
                                         <div class="col-6">
                                             <div class="form-group">
