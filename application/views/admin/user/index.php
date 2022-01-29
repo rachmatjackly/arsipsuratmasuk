@@ -78,7 +78,7 @@
                                 <div class="form-group">
                                     <label>Kata Kunci</label>
                                     <input type="text" class="form-control" name="t_cari"
-                                        value="<?php echo @$_GET["cari"]?>" placeholder="Cari">
+                                        value="" id="search" placeholder="Cari">
                                 </div>
                             </div>
                             <div class="col-md-2 ">
@@ -109,7 +109,7 @@
                                 <th>Alamat</th>
                                 <th>Foto Admin</th>
                             </thead>
-                            <tbody>
+                            <tbody id="result">
                                 <?php foreach($data as $data): ?>
                                 <tr>
                                     <td style="width: 3%">
@@ -124,35 +124,6 @@
                                     <td><img src="<?= base_url() ?>assets/uploads/images/<?= $data->foto_user ?>" class="col-md-5"></td>
                                 </tr>
                                 <?php endforeach ?>
-                                <?php
-                            //   if(@$_GET["cari"] == ""){
-                            //       $ada = "WHERE id_user != '$gusta3[id_user]'";
-                            //   }else{
-                            //       $ada = "WHERE `id_user` LIKE '%$_GET[cari]%' OR `nama_user` LIKE '%$_GET[cari]%' OR `no.hp` LIKE '%$_GET[cari]%' OR `email` LIKE '%$_GET[cari]%' OR `alamat` LIKE '%$_GET[cari]%'";
-                            //   }
-                            //   $sql3 = "SELECT *  FROM `tb_user` $ada";
-                            //   $result3 = $conn->query( $sql3 );
-                            //   $nourut = 0;
-                            //   while ( $row3 = $result3->fetch_array() ) {
-                            //       $nourut = $nourut+1;
-                            ?>
-                                <tr>
-                                    <!-- <td>
-                                        <?php if ($_SESSION["aezakmi"] == "admin"){?>
-                                        <a
-                                            href="user.php?ofset=<?php echo $_GET["ofset"]?>&edit&id=<?php echo $row3[0];?>">Edit</a>
-                                        <a href="user.php?ofset=<?php echo $_GET["ofset"]?>&hapus&id=<?php echo $row3[0];?>"
-                                            OnClick="return confirm('Pengumuman <?php echo $row3[0]; ?> akan dihapus. Lanjutkan?')">Hapus</a>
-                                        <?php }?>
-                                    </td>
-                                    <td><?php echo $row3[0];?></td>
-                                    <td><?php echo $row3[1];?></td>
-                                    <td><?php echo $row3[2];?></td>
-                                    <td><?php echo $row3[3];?></td>
-                                    <td><?php echo $row3[4];?></td>
-                                    <td><img src="upload/<?php echo $row3[7];?>" class="col-md-5"></td> -->
-                                </tr>
-                                <?php// }?>
                             </tbody>
                         </table>
                     </div>
@@ -163,3 +134,21 @@
     <!--------HALAMAN-------->
 
 </div>
+
+<script>
+  $(document).ready(function() {
+    $('#search').keyup(function() {
+      var search = $(this).val();
+      $.ajax({
+        url: "<?= base_url() ?>user/search",
+        type: "post",
+        data: {
+          search: search,
+        },
+        success: function(data) {
+          $('#result').html(data);
+        }
+      })
+    });
+  });
+</script>
