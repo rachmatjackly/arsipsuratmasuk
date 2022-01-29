@@ -215,8 +215,8 @@ class Surat extends CI_Controller {
                         <td>' . $data->pengirim_masuk . '</td>
                         <td>' . $data->jk_masuk . '</td>
                         <td>' . $data->penerima_masuk .'</td>
-                        <td><a href="<?= base_url() ?>/asset/uploads/<?= $data->dok_msk?>">Unduh</a></td>
-                        <td><?= $data->id_user ?></td>
+                        <td><a href=' . base_url() . 'assets/uploads/' . $data->dok_msk . '>Unduh</a></td>
+                        <td>' . $data->id_user . '</td>
                     </tr>
                 ';
             }
@@ -250,8 +250,7 @@ class Surat extends CI_Controller {
                         <td>' . $data->pembuat_sr_luar . '</td>
                         <td>' . $data->jk_luar . '</td>
                         <td>' . $data->penerima_sr_luar .'</td>
-                        <td>' . $data->penerima_sr_luar .'</td>
-                        <td><a href="<?= base_url() ?>/asset/uploads/<?= $data->dok_msk?>">Unduh</a></td>
+                        <td><a href=' . base_url() . 'assets/uploads/' . $data->dok_luar . '>Unduh</a></td>
                         <td>' . $data->id_user . '</td>
                     </tr>
                 ';

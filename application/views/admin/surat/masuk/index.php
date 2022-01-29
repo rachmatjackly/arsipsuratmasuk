@@ -144,7 +144,7 @@
                                     <td><?= $data->pengirim_masuk ?></td>
                                     <td><?= $data->jk_masuk ?></td>
                                     <td><?= $data->penerima_masuk ?></td>
-                                    <td><a href="<?= base_url() ?>/asset/uploads/<?= $data->dok_msk?>">Unduh</a></td>
+                                    <td><a href="<?= base_url() ?>/assets/uploads/<?= $data->dok_msk?>">Unduh</a></td>
                                     <td><?= $data->id_user ?></td>
                                 </tr>
                                 <?php endforeach ?>

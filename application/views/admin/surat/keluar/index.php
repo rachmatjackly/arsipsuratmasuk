@@ -137,7 +137,7 @@
                                     <td><?= $data->pembuat_sr_luar ?></td>
                                     <td><?= $data->jk_luar ?></td>
                                     <td><?= $data->penerima_sr_luar ?></td>
-                                    <td><a href="upload/<?php ?>">Unduh</a></td>
+                                    <td><a href="<?= base_url() ?>/assets/uploads/<?= $data->dok_luar?>">Unduh</a></td>
                                     <td><?= $data->id_user ?></td>
                                 </tr>
                                 <?php endforeach; ?>

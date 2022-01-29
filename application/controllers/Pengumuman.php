@@ -54,6 +54,12 @@ class Pengumuman extends CI_Controller {
             foreach($querySearch as $data){
                 $output .='
                     <tr>
+                        <td style="width: 3%">
+                            <a
+                                href=' . base_url() . 'admin/pengumuman/' . $data['nm_pengumuman'] . '/edit>Edit</a>⠀⠀
+                            <a href=' . base_url() . 'pengumuman/delete_pengumuman/' . $data['nm_pengumuman'] . '
+                                OnClick="return confirm()">Hapus</a>
+                        </td>
                         <td>' . $data['nm_pengumuman'] . '</td>
                         <td>' . $data['tg_pengumuman'] . '</td>
                         <td>' . $data['id_user'] . '</td>
