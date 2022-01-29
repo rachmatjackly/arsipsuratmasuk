@@ -38,6 +38,12 @@ class Model_surat extends CI_Model {
         return $this->db->get('tb_surat_masuk')->result();
     }
 
+    public function getSuratKeluarLikeId($id)
+    {
+        $this->db->like('judul_luar', $id);
+        return $this->db->get('tb_surat_keluar')->result();
+    }
+
     function updateSuratKeluar($id, $data)
     {
         $this->db->where(['nm_sr_luar' => $id]);

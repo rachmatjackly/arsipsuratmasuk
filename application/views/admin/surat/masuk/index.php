@@ -162,6 +162,7 @@
 <script>
     $(document).ready(function() {
         $("#search").keyup(function(){
+            // $(this).empty();
             var search = $(this).val();
             console.log(search);
             $.ajax({

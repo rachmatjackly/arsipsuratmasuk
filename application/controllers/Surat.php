@@ -183,13 +183,21 @@ class Surat extends CI_Controller {
         if($id == "masuk"){
             $param = $this->input->post('search');
             $querySearch = $this->Model_surat->getSuratMasukLikeId($param);
+
+            $this->template_search_masuk($querySearch);
         };
 
-        // if($id == "keluar"){
-        //     $param = $this->input->post('search');
-        //     $querySearch = $this->Model_surat->getSuratLikeId($param);
-        // }
+        if($id == "keluar"){
+            $param = $this->input->post('search');
+            $querySearch = $this->Model_surat->getSuratKeluarLikeId($param);
 
+            $this->template_search_keluar($querySearch);
+        }
+       
+    }
+
+    private function template_search_masuk($querySearch)
+    {
         $output = '';
         if(count($querySearch) > 0 ) {
             foreach($querySearch as $data){
@@ -197,9 +205,9 @@ class Surat extends CI_Controller {
                     <tr>
                         <td style="width: 3%">
                             <a href= ' . base_url() . 'admin/surat_masuk/edit/' . $data->nm_sr_masuk . '>Edit</a>⠀⠀
-                            <a href=' . base_url() . 'surat/delete_surat_masuk/' . $data->nm_sr_masuk . 'OnClick="return confirm(Surat Keluar akan dihapus. Lanjutkan?)">Hapus</a>
+                            <a href=' . base_url() . 'surat/delete_surat_masuk/' . $data->nm_sr_masuk . " OnClick='return confirm('Yakin?')'>Hapus</a>
                         </td>
-                        <td>' . $data->nm_sr_masuk . '</td>
+                        <td>" . $data->nm_sr_masuk . '</td>
                         <td>' . $data->tg_sr_masuk . '</td>
                         <td>' . $data->tg_sr_masuk_dt . '</td>
                         <td>' . $data->perihal_masuk . '</td>
@@ -211,8 +219,44 @@ class Surat extends CI_Controller {
                         <td><?= $data->id_user ?></td>
                     </tr>
                 ';
-                echo $output;
             }
+            echo $output;
+        } else {
+            $output .= '
+                    <tr>
+                        <td colspan="11" class="text-center">Data Tidak Ditemukan</td>
+                    </tr>
+                ';
+            echo $output;
+        }
+    }
+
+    private function template_search_keluar($querySearch)
+    {
+        $output = '';
+        if(count($querySearch) > 0 ) {
+            foreach($querySearch as $data){
+                $output .= '
+                    <tr>
+                        <td style="width: 3%">
+                            <a href= ' . base_url() . 'admin/surat_keluar/edit/' . $data->nm_sr_luar . '>Edit</a>⠀⠀
+                            <a href=' . base_url() . 'surat/delete_surat_keluar/' . $data->nm_sr_luar . ' OnClick="return confirm(Surat Keluar akan dihapus. Lanjutkan?)">Hapus</a>
+                        </td>
+                        <td>' . $data->nm_sr_luar . '</td>
+                        <td>' . $data->tg_sr_luar_bt . '</td>
+                        <td>' . $data->tg_sr_luar_lk . '</td>
+                        <td>' . $data->perihal_luar . '</td>
+                        <td>' . $data->judul_luar . '</td>
+                        <td>' . $data->pembuat_sr_luar . '</td>
+                        <td>' . $data->jk_luar . '</td>
+                        <td>' . $data->penerima_sr_luar .'</td>
+                        <td>' . $data->penerima_sr_luar .'</td>
+                        <td><a href="<?= base_url() ?>/asset/uploads/<?= $data->dok_msk?>">Unduh</a></td>
+                        <td>' . $data->id_user . '</td>
+                    </tr>
+                ';
+            }
+            echo $output;
         } else {
             $output .= '
                     <tr>
@@ -221,6 +265,5 @@ class Surat extends CI_Controller {
                 ';
                 echo $output;
         }
-       
     }
 }
