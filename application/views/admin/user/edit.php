@@ -55,7 +55,7 @@
                                     <label>Foto Profil</label>
                                     <img src="<?= base_url() ?>assets/uploads/images/<?= $data[0]->foto_user ?>" class="col-md-5">
                                     <input type="file" name="file1" style="opacity: 100;position: inherit">
-                                    <span style="font-size:12px;color:red" >Note: Jika dokumen tidak diedit dibiarkan kosong saja.</span>
+                                    <span style="font-size:12px;color:red" >Note: Jika foto profil tidak diedit dibiarkan kosong saja.</span>
                                 </div>
                             </div>
                             <div class="col-md-12 d-flex justify-content-center">

@@ -106,9 +106,7 @@ name='viewport' />
         <div class="collapse navbar-collapse justify-content-end" id="navigation">
             <ul class="navbar-nav">
                 <li class="nav-item btn-rotate dropdown">
-                    <a class="nav-link dropdown-toggle" href="http://example.com"
-                        id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false">
+                    <a class="nav-link" href="#">
                         <p>
                             <span class=" d-md-block"><?php echo $this->session->nama ?></span>
                         </p>
