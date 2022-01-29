@@ -61,7 +61,7 @@
                                 <div class="form-group">
                                     <label>Kata Kunci</label>
                                     <input type="text" class="form-control" name="t_cari"
-                                        value="<?php echo @$_GET["cari"]?>" placeholder="Cari">
+                                        value="" id="search" placeholder="Cari">
                                 </div>
                             </div>
                             <div class="col-md-2 ">
@@ -92,7 +92,7 @@
                                 <th>Judul Pengumuman</th>
                                 <th>Isi Pengumuman</th>
                             </thead>
-                            <tbody>
+                            <tbody id="result">
                                 <?php
                               foreach($data as $data): 
                                 ?>
@@ -134,4 +134,22 @@ function getData() {
     //Set data in Second Editor which is written in first Editor  
     CKEDITOR.instances['editor2'].setData(editor_data);
 }
+</script>
+
+<script>
+  $(document).ready(function() {
+    $('#search').keyup(function() {
+      var search = $(this).val();
+      $.ajax({
+        url: "<?= base_url() ?>pengumuman/search",
+        type: "post",
+        data: {
+          search: search,
+        },
+        success: function(data) {
+          $('#result').html(data);
+        }
+      })
+    });
+  });
 </script>

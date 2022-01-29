@@ -20,6 +20,12 @@ class Model_user extends CI_Model {
         return $this->db->get('tb_user')->result();
     }
 
+    public function getUserLikeId($id)
+    {
+        $this->db->like('nama_user', $id);
+        return $this->db->get('tb_user')->result();
+    }
+
     public function addUser($data)
     {
         $this->db->insert('tb_user', $data);
