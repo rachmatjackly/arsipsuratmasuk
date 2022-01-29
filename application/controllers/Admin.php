@@ -44,6 +44,7 @@ class Admin extends CI_Controller {
 
     function edit_surat_keluar($id)
     {
+        $data['nav'] = ["","active","","",""];
         $data['data'] = $this->Model_surat->getSuratKeluarById($id);
         $data['title'] = "Halaman Edit Surat Keluar";
         $this->load->view('admin/templates/header', $data);
@@ -53,6 +54,7 @@ class Admin extends CI_Controller {
 
     function edit_surat_masuk($id)
     {
+        $data['nav'] = ["","","active","",""];
         $data['data'] = $this->Model_surat->getSuratMasukById($id);
         $data['title'] = "Halaman Edit Surat Keluar";
         $this->load->view('admin/templates/header', $data);
@@ -72,6 +74,7 @@ class Admin extends CI_Controller {
     
     function detail_pengumuman($id, $detail = "")
     {
+        $data['nav'] = ["","","","active",""];
         $data['data'] = $this->Model_pengumuman->getPengumumanById($id);
         $data['title'] = "Halaman Isi Pengumuman";
         $this->load->view('admin/templates/header', $data);
@@ -81,6 +84,7 @@ class Admin extends CI_Controller {
 
     function edit_pengumuman($id, $edit = "")
     {
+        $data['nav'] = ["","","","active",""];
         $data['data'] = $this->Model_pengumuman->getPengumumanById($id);
         $data['title'] = "Halaman Edit Pengumuman";
         $this->load->view('admin/templates/header', $data);
@@ -100,6 +104,7 @@ class Admin extends CI_Controller {
 
     function edit_user($id, $edit = "")
     {
+        $data['nav'] = ["","","","","active"];
         $data['data'] = $this->Model_user->getUserById($id);
         $data['title'] = "Halaman Edit Admin";
         $this->load->view('admin/templates/header', $data);
