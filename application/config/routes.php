@@ -54,3 +54,8 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 $route['login'] = 'authentication/login';
+$route['admin/surat_keluar/edit/(:any)'] = 'admin/edit_surat_keluar/$1';
+$route['admin/surat_masuk/edit/(:any)'] = 'admin/edit_surat_masuk/$1';
+$route['admin/pengumuman/(:any)/detail'] = 'admin/detail_pengumuman/$1';
+$route['admin/pengumuman/(:any)/edit'] = 'admin/edit_pengumuman/$1';
+$route['admin/user/(:any)/edit'] = 'admin/edit_user/$1';

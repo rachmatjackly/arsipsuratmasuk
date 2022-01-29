@@ -7,12 +7,14 @@ class Home extends CI_Controller {
     {
         parent::__construct();
         $this->load->model('Model_pengumuman');
+        $this->load->model('Model_user');
     }
 
 	public function index()
     {
         $data['pengumuman'] = $this->Model_pengumuman->getAll();
-        $nav = array("active","");
+        $data['user'] = $this->Model_user->getAll();
+        $data['nav'] = array("active","");
         $this->load->view('templates/header', $data);
         $this->load->view('home/index', $data);
         $this->load->view('templates/footer');

@@ -25,8 +25,15 @@ class Authentication extends CI_Controller {
         $checkUser = $this->Model_user->getByUsernameAndPassword($username, $password);
 
         if ($checkUser) {
-            echo 'login';
+            $session = array(
+                "login" => True,
+                "nama" => $checkUser[0]->nama_user
+            );
+            $this->session->set_userdata($session);
+
+            redirect('admin');
         }
+        redirect('login', 'refresh');
 
     }
 }

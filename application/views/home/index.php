@@ -69,25 +69,25 @@
                         </thead>
                         <tbody>
                           <?php
-                              // $ada = @$_GET["cari"];
-                              // $sql3 = "SELECT *  FROM `tb_pengumuman` WHERE `nm_pengumuman`LIKE '%$ada%' OR `tg_pengumuman` LIKE '%$ada%' OR `judul_pengumuman` LIKE '%$ada%' OR `jk_pengumuman` LIKE '%$ada%' OR `isi_pengumuman` LIKE '%$ada%' LIMIT 10 OFFSET $_GET[ofset]";
-                              // $result3 = $conn->query( $sql3 );
-                              // $nourut = 0;
-                              // while ( $row3 = $result3->fetch_array() ) {
-                              //     $nourut = $nourut+1;
-                              //     //ngambil dari tabel user
-                              //     $dibuat_oleh = $conn->query( "SELECT *  FROM `tb_user` WHERE `id_user` = '$row3[id_user]' or nama_user LIKE '%$ada%'" )->fetch_array();
-                              //     ////
+                              foreach($pengumuman as $peng): 
                             ?>
                           <tr>
-                            <td><?php //echo $row3[0];?></td>
-                            <td><?php// echo $row3[1];?></td>
-                            <td><?php //echo $dibuat_oleh["nama_user"];?></td>
-                            <td><?php// echo $row3[3];?></td>
-                            <td><?php// echo $row3[2];?></td>
-                            <td><a href="isi_pengumuman_home.php?id=<?php// echo $row3[0];?>">Lihat</a></td>
+                            <td><?= $peng->nm_pengumuman?></td>
+                            <td><?= $peng->tg_pengumuman?></td>
+                            <td>
+                              <?php
+                                foreach($user as $usr): 
+                                  if($peng->nm_pengumuman == $usr->id_user):
+                                    echo $usr->nama_user; 
+                                  endif;
+                                endforeach;
+                              ?>
+                            </td>
+                            <td><?= $peng->jk_pengumuman?></td>
+                            <td><?= $peng->judul_pengumuman?></td>
+                            <td><a href="isi_pengumuman_home.php?id=<?= $peng->nm_pengumuman?>">Lihat</a></td>
                           </tr>
-                            <?php //}?>
+                            <?php endforeach?>
                         </tbody>
                       </table>
                     </div>
