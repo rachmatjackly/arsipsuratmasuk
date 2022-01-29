@@ -19,6 +19,27 @@
 </footer>
 </div>
 </div>
+
+<?php if($this->session->flashdata("add")): ?>
+<script>
+Swal.fire(
+    'Success!',
+    'Data has been created!',
+    'success'
+)
+</script>
+<?php endif ?>
+
+<?php if($this->session->flashdata('update')): ?>
+<script>
+Swal.fire(
+    'Success!',
+    'Data has been update!',
+    'success'
+)
+</script>
+<?php endif ?>
+
 <!--   Core JS Files   -->
 <script src="<?= base_url() ?>assets/js/core/jquery.min.js"></script>
 <script src="<?= base_url() ?>assets/js/core/popper.min.js"></script>

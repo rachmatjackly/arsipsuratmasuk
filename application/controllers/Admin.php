@@ -15,6 +15,7 @@ class Admin extends CI_Controller {
 
     function index() 
     {
+        $data['nav'] = ["active","","","",""];
         $data['title'] = "Halaman Utama Admin";
         $this->load->view('admin/templates/header', $data);
         $this->load->view('admin/index');
@@ -23,6 +24,7 @@ class Admin extends CI_Controller {
 
     function surat_masuk()
     {
+        $data['nav'] = ["","","active","",""];
         $data['surat_masuk'] = $this->Model_surat->getAllSuratMasuk();
         $data['title'] = "Halaman Surat Masuk";
         $this->load->view('admin/templates/header', $data);
@@ -32,6 +34,7 @@ class Admin extends CI_Controller {
 
     function surat_keluar()
     {
+        $data['nav'] = ["","active","","",""];
         $data['surat_keluar'] = $this->Model_surat->getAllSuratKeluar();
         $data['title'] = "Halaman Surat Keluar";
         $this->load->view('admin/templates/header', $data);
@@ -59,6 +62,7 @@ class Admin extends CI_Controller {
 
     function pengumuman()
     {
+        $data['nav'] = ["","","","active",""];
         $data['data'] = $this->Model_pengumuman->getAll();
         $data['title'] = "Halaman Pengumuman";
         $this->load->view('admin/templates/header', $data);
@@ -86,6 +90,7 @@ class Admin extends CI_Controller {
 
     function user()
     {
+        $data['nav'] = ["","","","","active"];
         $data['data'] = $this->Model_user->getAll();
         $data['title'] = "Halaman Admin";
         $this->load->view('admin/templates/header', $data);

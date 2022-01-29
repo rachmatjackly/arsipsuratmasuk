@@ -60,8 +60,8 @@
                             <div class="col-md-10">
                                 <div class="form-group">
                                     <label>Kata Kunci</label>
-                                    <input type="text" class="form-control" name="t_cari"
-                                        value="" id="search" placeholder="Cari">
+                                    <input type="text" class="form-control" name="t_cari" value="" id="search"
+                                        placeholder="Cari">
                                 </div>
                             </div>
                             <div class="col-md-2 ">
@@ -100,8 +100,7 @@
                                     <td style="width: 3%">
                                         <a
                                             href="<?= base_url();?>admin/pengumuman/<?= $data->nm_pengumuman ?>/edit">Edit</a>⠀⠀
-                                        <a href="<?= base_url();?>pengumuman/delete_pengumuman/<?= $data->nm_pengumuman ?>"
-                                            OnClick="return confirm('Surat Keluar akan dihapus. Lanjutkan?')">Hapus</a>
+                                        <a href="#" id="delete" data-id="<?= $data->nm_pengumuman?>">Hapus</a>
                                     </td>
                                     <td><?= $data->nm_pengumuman?></td>
                                     <td><?= $data->tg_pengumuman?></td>
@@ -137,19 +136,50 @@ function getData() {
 </script>
 
 <script>
-  $(document).ready(function() {
+$(document).ready(function() {
     $('#search').keyup(function() {
-      var search = $(this).val();
-      $.ajax({
-        url: "<?= base_url() ?>pengumuman/search",
-        type: "post",
-        data: {
-          search: search,
-        },
-        success: function(data) {
-          $('#result').html(data);
-        }
-      })
+        var search = $(this).val();
+        $.ajax({
+            url: "<?= base_url() ?>pengumuman/search",
+            type: "post",
+            data: {
+                search: search,
+            },
+            success: function(data) {
+                $('#result').html(data);
+            }
+        })
     });
-  });
+
+    $("#delete").click(function() {
+        var id = $(this).data("id");
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    url: "<?= base_url()?>/pengumuman/delete_pengumuman/",
+                    type: "post",
+                    data: "id=" + id,
+                    success: function() {
+                        Swal.fire(
+                            'Deleted!',
+                            'Your data has been deleted.',
+                            'success'
+                        );
+                        setTimeout(function() {
+                            window.location.reload(1);
+                        }, 1500);
+                    }
+                })
+            }
+        })
+    })
+});
 </script>

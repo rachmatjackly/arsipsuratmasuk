@@ -84,8 +84,8 @@
                             <div class="col-md-10">
                                 <div class="form-group">
                                     <label>Kata Kunci</label>
-                                    <input type="text" class="form-control" name="t_cari" id="search"
-                                        value="" placeholder="Cari">
+                                    <input type="text" class="form-control" name="t_cari" id="search" value=""
+                                        placeholder="Cari">
                                 </div>
                             </div>
                             <div class="col-md-2 ">
@@ -126,8 +126,9 @@
                                 ?>
                                 <tr>
                                     <td style="width: 3%">
-                                        <a href="<?= base_url() ?>admin/surat_keluar/edit/<?= $data->nm_sr_luar ?>">Edit</a>⠀⠀
-                                        <a href="<?= base_url() ?>surat/delete_surat_keluar/<?= $data->nm_sr_luar ?>" OnClick="return confirm('Surat Keluar yakin akan dihapus. Lanjutkan?')">Hapus</a>
+                                        <a
+                                            href="<?= base_url() ?>admin/surat_keluar/edit/<?= $data->nm_sr_luar ?>">Edit</a>⠀⠀
+                                        <a href="#" id="delete" data-id="<?= $data->nm_sr_luar ?>">Hapus</a>
                                     </td>
                                     <td><?= $data->nm_sr_luar ?></td>
                                     <td><?= $data->tg_sr_luar_bt ?></td>
@@ -153,20 +154,51 @@
 </div>
 
 <script>
-    $(document).ready(function() {
-        $("#search").keyup(function(){
-            var search = $(this).val();
-            console.log(search);
-            $.ajax({
-                type: "post",
-                url: "<?= base_url() ?>surat/search/keluar",
-                data: {
-                    search: search,
-                },
-                success: function(data){
-                    $("#result").html(data);
-                }
-            });
+$(document).ready(function() {
+    $("#search").keyup(function() {
+        var search = $(this).val();
+        console.log(search);
+        $.ajax({
+            type: "post",
+            url: "<?= base_url() ?>surat/search/keluar",
+            data: {
+                search: search,
+            },
+            success: function(data) {
+                $("#result").html(data);
+            }
         });
     });
+
+    $("#delete").click(function() {
+        var id = $(this).data("id");
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    url: "<?= base_url()?>/surat/delete_surat_keluar/",
+                    type: "post",
+                    data: "id=" + id,
+                    success: function() {
+                        Swal.fire(
+                            'Deleted!',
+                            'Your data has been deleted.',
+                            'success'
+                        );
+                        setTimeout(function() {
+                            window.location.reload(1);
+                        }, 1500);
+                    }
+                })
+            }
+        })
+    })
+});
 </script>

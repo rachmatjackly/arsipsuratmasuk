@@ -16,50 +16,43 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Tanggal Yang Tercantum Pada Surat</label>
-                                    <input type="date" required class="form-control"
-                                        value="" name="1">
+                                    <input type="date" required class="form-control" value="" name="1">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Tanggal Surat Diterima</label>
-                                    <input type="date" required class="form-control"
-                                        value="" name="2">
+                                    <input type="date" required class="form-control" value="" name="2">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Perihal Surat Masuk</label>
-                                    <input type="text" required class="form-control"
-                                        value="" name="3">
+                                    <input type="text" required class="form-control" value="" name="3">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Judul Surat Masuk</label>
-                                    <input type="text" required class="form-control"
-                                        value="" name="4">
+                                    <input type="text" required class="form-control" value="" name="4">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Pengirim Surat Masuk</label>
-                                    <input type="text" required class="form-control"
-                                        value="" name="5">
+                                    <input type="text" required class="form-control" value="" name="5">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Jenis Kegiatan Surat Masuk</label>
-                                    <input type="text" required class="form-control"
-                                        value="" name="6">
+                                    <input type="text" required class="form-control" value="" name="6">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Penerima Surat Masuk</label>
-                                    <input type="text" required class="form-control"
-                                        value="" name="7">
+                                    <input type="text" required class="form-control" value="" name="7">
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -71,7 +64,8 @@
                             <div class="col-md-12 d-flex justify-content-center">
                                 <div class="form-group">
                                     <label></label><br>
-                                    <button class="btn btn-primary btn-round" name="simpan" type="submit">Simpan</button>
+                                    <button class="btn btn-primary btn-round" name="simpan"
+                                        type="submit">Simpan</button>
                                 </div>
                             </div>
                         </div>
@@ -90,14 +84,14 @@
                             <div class="col-md-10">
                                 <div class="form-group">
                                     <label>Kata Kunci</label>
-                                    <input type="text" class="form-control" name="t_cari" id="search" value="" placeholder="Cari">
+                                    <input type="text" class="form-control" name="t_cari" id="search" value=""
+                                        placeholder="Cari">
                                 </div>
                             </div>
                             <div class="col-md-2 ">
                                 <div class="form-group">
                                     <label></label><br>
-                                    <button class="btn btn-primary btn-round" name="b_cari"
-                                        type="submit">Cari</button>
+                                    <button class="btn btn-primary btn-round" name="b_cari" type="submit">Cari</button>
                                 </div>
                             </div>
                         </div>
@@ -132,9 +126,9 @@
                                 ?>
                                 <tr>
                                     <td style="width: 3%">
-                                        <a href="<?= base_url() ?>admin/surat_masuk/edit/<?= $data->nm_sr_masuk ?>">Edit</a>⠀⠀
-                                        <a href="<?= base_url() ?>surat/delete_surat_masuk/<?= $data->nm_sr_masuk ?>"
-                                            OnClick="return confirm('Surat Keluar akan dihapus. Lanjutkan?')">Hapus</a>
+                                        <a
+                                            href="<?= base_url() ?>admin/surat_masuk/edit/<?= $data->nm_sr_masuk ?>">Edit</a>⠀⠀
+                                        <a id="delete" data-id="<?= $data->nm_sr_masuk ?>" href="#">Hapus</a>
                                     </td>
                                     <td><?= $data->nm_sr_masuk ?></td>
                                     <td><?= $data->tg_sr_masuk ?></td>
@@ -160,21 +154,52 @@
 </div>
 
 <script>
-    $(document).ready(function() {
-        $("#search").keyup(function(){
-            // $(this).empty();
-            var search = $(this).val();
-            console.log(search);
-            $.ajax({
-                type: "post",
-                url: "<?= base_url() ?>surat/search/masuk",
-                data: {
-                    search: search,
-                },
-                success: function(data){
-                    $("#result").html(data);
-                }
-            });
+$(document).ready(function() {
+    $("#search").keyup(function() {
+        // $(this).empty();
+        var search = $(this).val();
+        console.log(search);
+        $.ajax({
+            type: "post",
+            url: "<?= base_url() ?>surat/search/masuk",
+            data: {
+                search: search,
+            },
+            success: function(data) {
+                $("#result").html(data);
+            }
         });
     });
+
+    $("#delete").click(function() {
+        var id = $(this).data("id");
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    url: "<?= base_url()?>/surat/delete_surat_masuk/",
+                    type: "post",
+                    data: "id=" + id,
+                    success: function() {
+                        Swal.fire(
+                            'Deleted!',
+                            'Your data has been deleted.',
+                            'success'
+                        );
+                        setTimeout(function() {
+                            window.location.reload(1);
+                        }, 1500);
+                    }
+                })
+            }
+        })
+    })
+});
 </script>
