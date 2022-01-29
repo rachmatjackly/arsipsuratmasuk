@@ -21,4 +21,46 @@ class Home extends CI_Controller {
         $this->load->view('templates/footer');
     }
 
+    public function detail_pengumuman($id, $detail = "")
+    {
+        $data['data'] = $this->Model_pengumuman->getPengumumanById($id);
+        $data['nav'] = array("active","");
+        $data['title'] = "Halaman Isi Pengumuman";
+        $this->load->view('templates/header', $data);
+        $this->load->view('home/detail_pengumuman', $data);
+        $this->load->view('templates/footer');
+    }
+
+    public function search()
+    {
+        $id = $this->input->post('search');
+        $querySearch = $this->Model_pengumuman->getPengumumanLikeId($id);
+
+        $output = '';
+        if(count($querySearch) > 0) {
+            foreach($querySearch as $data){
+                $output .='
+                    <tr>
+                        <td>' . $data['nm_pengumuman'] . '</td>
+                        <td>' . $data['tg_pengumuman'] . '</td>
+                        <td>' . $data['id_user'] . '</td>
+                        <td>' . $data['jk_pengumuman'] . '</td>
+                        <td>' . $data['judul_pengumuman'] . '</td>
+                        <td><a href=' . base_url() . 'pengumuman/' . $data['nm_pengumuman'] . '/detail>Lihat</a></td>
+                    </tr>
+                ';
+            };
+            echo $output;
+        } else {
+            $output .='
+                    <tr>
+                        <td colspan="6" class="text-center" > Data Tidak Ditemukan </td>
+                    </tr>
+                ';
+            echo $output;
+        }
+        
+        
+    }
+
 }

@@ -59,3 +59,5 @@ $route['admin/surat_masuk/edit/(:any)'] = 'admin/edit_surat_masuk/$1';
 $route['admin/pengumuman/(:any)/detail'] = 'admin/detail_pengumuman/$1';
 $route['admin/pengumuman/(:any)/edit'] = 'admin/edit_pengumuman/$1';
 $route['admin/user/(:any)/edit'] = 'admin/edit_user/$1';
+
+$route['pengumuman/(:any)/detail'] = 'home/detail_pengumuman/$1';

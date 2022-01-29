@@ -13,6 +13,12 @@ class Model_pengumuman extends CI_Model {
         return $this->db->get_where('tb_pengumuman', ['nm_pengumuman' => $id])->result();
     }
 
+    public function getPengumumanLikeId($id)
+    {
+        $this->db->like('judul_pengumuman', $id);
+        return $this->db->get('tb_pengumuman')->result_array();
+    }
+
     public function addPengumuman($data)
     {
         $this->db->insert('tb_pengumuman', $data);
