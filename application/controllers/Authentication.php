@@ -11,9 +11,10 @@ class Authentication extends CI_Controller {
 
 	public function login()
     {
+        $data['title'] = "Halaman Login";
         $data['nav'] = array("","active");
         $this->load->view('templates/header' , $data);
-        $this->load->view('login/index');
+        $this->load->view('login/index', $data);
         $this->load->view('templates/footer');
     }
 

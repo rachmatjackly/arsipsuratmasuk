@@ -13,6 +13,7 @@ class Home extends CI_Controller {
 	public function index()
     {
         $data['pengumuman'] = $this->Model_pengumuman->getAll();
+        $data['title'] = "Halaman Dashboard";
         $data['user'] = $this->Model_user->getAll();
         $data['nav'] = array("active","");
         $this->load->view('templates/header', $data);
