@@ -90,8 +90,7 @@
                             <div class="col-md-10">
                                 <div class="form-group">
                                     <label>Kata Kunci</label>
-                                    <input type="text" class="form-control" name="t_cari"
-                                        value="<?php //echo @$_GET["cari"]?>" placeholder="Cari">
+                                    <input type="text" class="form-control" name="t_cari" id="search" value="" placeholder="Cari">
                                 </div>
                             </div>
                             <div class="col-md-2 ">
@@ -127,7 +126,7 @@
                                 <th>Dokumen Surat Masuk</th>
                                 <th>Admin Yang Memasukan</th>
                             </thead>
-                            <tbody>
+                            <tbody id="result">
                                 <?php 
                                     foreach($surat_masuk as $data): 
                                 ?>
@@ -159,3 +158,22 @@
     <!--------HALAMAN-------->
 
 </div>
+
+<script>
+    $(document).ready(function() {
+        $("#search").keyup(function(){
+            var search = $(this).val();
+            console.log(search);
+            $.ajax({
+                type: "post",
+                url: "<?= base_url() ?>surat/search/masuk",
+                data: {
+                    search: search,
+                },
+                success: function(data){
+                    $("#result").html(data);
+                }
+            });
+        });
+    });
+</script>

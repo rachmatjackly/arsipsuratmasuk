@@ -177,4 +177,50 @@ class Surat extends CI_Controller {
         $this->Model_surat->deleteSuratMasuk($id);
         redirect('admin/surat_masuk');
     }
+
+    public function search($id)
+    {
+        if($id == "masuk"){
+            $param = $this->input->post('search');
+            $querySearch = $this->Model_surat->getSuratMasukLikeId($param);
+        };
+
+        // if($id == "keluar"){
+        //     $param = $this->input->post('search');
+        //     $querySearch = $this->Model_surat->getSuratLikeId($param);
+        // }
+
+        $output = '';
+        if(count($querySearch) > 0 ) {
+            foreach($querySearch as $data){
+                $output .= '
+                    <tr>
+                        <td style="width: 3%">
+                            <a href= ' . base_url() . 'admin/surat_masuk/edit/' . $data->nm_sr_masuk . '>Edit</a>⠀⠀
+                            <a href=' . base_url() . 'surat/delete_surat_masuk/' . $data->nm_sr_masuk . 'OnClick="return confirm(Surat Keluar akan dihapus. Lanjutkan?)">Hapus</a>
+                        </td>
+                        <td>' . $data->nm_sr_masuk . '</td>
+                        <td>' . $data->tg_sr_masuk . '</td>
+                        <td>' . $data->tg_sr_masuk_dt . '</td>
+                        <td>' . $data->perihal_masuk . '</td>
+                        <td>' . $data->judul_masuk . '</td>
+                        <td>' . $data->pengirim_masuk . '</td>
+                        <td>' . $data->jk_masuk . '</td>
+                        <td>' . $data->penerima_masuk .'</td>
+                        <td><a href="<?= base_url() ?>/asset/uploads/<?= $data->dok_msk?>">Unduh</a></td>
+                        <td><?= $data->id_user ?></td>
+                    </tr>
+                ';
+                echo $output;
+            }
+        } else {
+            $output .= '
+                    <tr>
+                        <td colspan="11" class="text-center">Data Tidak Ditemukan</td>
+                    </tr>
+                ';
+                echo $output;
+        }
+       
+    }
 }
