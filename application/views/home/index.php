@@ -10,7 +10,7 @@
                 <span class="navbar-toggler-bar bar3"></span>
               </button>
             </div>
-            <a class="navbar-brand" href="javascript:;">Halaman Login</a>
+            <a class="navbar-brand" href="javascript:;"><?= $title ?></a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -37,7 +37,7 @@
                         <div class="col-md-10">
                           <div class="form-group">
                             <label>Kata Kunci</label>
-                            <input type="text" class="form-control" name="t_cari" value="<?php// echo @$_GET["cari"]?>" placeholder="Cari"> 
+                            <input type="text" class="form-control" name="t_cari" id="search" value="" placeholder="Cari"> 
                           </div>
                         </div>
                         <div class="col-md-2 ">
@@ -53,6 +53,7 @@
         </div>
         </form>
 		<!---------TABEL------->
+    <!-- <div id="testing"></div> -->
         <div class="row">
               <div class="col-md-12">
                 <div class="card">
@@ -67,7 +68,7 @@
                           <th>Judul Pengumuman</th>
                           <th>Isi Pengumuman</th>
                         </thead>
-                        <tbody>
+                        <tbody id="testing">
                           <?php
                               foreach($pengumuman as $peng): 
                             ?>
@@ -85,7 +86,7 @@
                             </td>
                             <td><?= $peng->jk_pengumuman?></td>
                             <td><?= $peng->judul_pengumuman?></td>
-                            <td><a href="isi_pengumuman_home.php?id=<?= $peng->nm_pengumuman?>">Lihat</a></td>
+                            <td><a href="<?= base_url() ?>pengumuman/<?=$peng->nm_pengumuman?>/detail">Lihat</a></td>
                           </tr>
                             <?php endforeach?>
                         </tbody>
@@ -98,3 +99,22 @@
         <!--------HALAMAN-------->
         
       </div>
+
+
+<script>
+  $(document).ready(function() {
+    $('#search').keyup(function() {
+      var search = $(this).val();
+      $.ajax({
+        url: "<?= base_url() ?>home/search",
+        type: "post",
+        data: {
+          search: search,
+        },
+        success: function(data) {
+          $('#testing').html(data);
+        }
+      })
+    });
+  });
+</script>
