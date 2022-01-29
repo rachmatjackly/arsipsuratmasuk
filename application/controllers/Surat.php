@@ -35,6 +35,7 @@ class Surat extends CI_Controller {
             "id_user" => $this->session->nama,
         );
 
+        $this->session->set_flashdata('add', 1);
         $this->Model_surat->addSuratKeluar($data);
         redirect('admin/surat_keluar');
     }
@@ -59,7 +60,8 @@ class Surat extends CI_Controller {
                 "penerima_sr_luar" => $this->input->post('7'),
                 "id_user" => $this->session->nama,
             );
-    
+            
+            $this->session->set_flashdata('update', 1);
             $this->Model_surat->updateSuratKeluar($id, $data);
             redirect('admin/surat_keluar');
         }
@@ -83,14 +85,14 @@ class Surat extends CI_Controller {
             "id_user" => $this->session->nama,
         );
 
+        $this->session->set_flashdata('update', 1);
         $this->Model_surat->updateSuratKeluar($id, $data);
         redirect('admin/surat_keluar');
     }
 
-    function delete_surat_keluar($id)
+    function delete_surat_keluar()
     {
-        $this->Model_surat->deleteSuratKeluar($id);
-        redirect('admin/surat_keluar');
+        $this->Model_surat->deleteSuratKeluar($this->input->post("id"));
     }
 
     function save_surat_masuk()
@@ -120,6 +122,7 @@ class Surat extends CI_Controller {
             "id_user" => $this->session->nama,
         );
 
+        $this->session->set_flashdata('add', 1);
         $this->Model_surat->addSuratMasuk($data);
         redirect('admin/surat_masuk');
     }
@@ -145,6 +148,7 @@ class Surat extends CI_Controller {
                 "id_user" => $this->session->nama,
             );
 
+            $this->session->set_flashdata('update', 1);
             $this->Model_surat->updateSuratMasuk($id, $data);
             redirect('admin/surat_masuk');
         }
@@ -168,14 +172,14 @@ class Surat extends CI_Controller {
             "id_user" => $this->session->nama,
         );
 
+        $this->session->set_flashdata('update', 1);
         $this->Model_surat->updateSuratMasuk($id, $data);
         redirect('admin/surat_masuk');
     }
 
-    function delete_surat_masuk($id)
+    function delete_surat_masuk()
     {
-        $this->Model_surat->deleteSuratMasuk($id);
-        redirect('admin/surat_masuk');
+        $this->Model_surat->deleteSuratMasuk($this->input->post("id"));
     }
 
     public function search($id)
@@ -215,8 +219,8 @@ class Surat extends CI_Controller {
                         <td>' . $data->pengirim_masuk . '</td>
                         <td>' . $data->jk_masuk . '</td>
                         <td>' . $data->penerima_masuk .'</td>
-                        <td><a href="<?= base_url() ?>/asset/uploads/<?= $data->dok_msk?>">Unduh</a></td>
-                        <td><?= $data->id_user ?></td>
+                        <td><a href=' . base_url() . 'assets/uploads/' . $data->dok_msk . '>Unduh</a></td>
+                        <td>' . $data->id_user . '</td>
                     </tr>
                 ';
             }
@@ -250,8 +254,7 @@ class Surat extends CI_Controller {
                         <td>' . $data->pembuat_sr_luar . '</td>
                         <td>' . $data->jk_luar . '</td>
                         <td>' . $data->penerima_sr_luar .'</td>
-                        <td>' . $data->penerima_sr_luar .'</td>
-                        <td><a href="<?= base_url() ?>/asset/uploads/<?= $data->dok_msk?>">Unduh</a></td>
+                        <td><a href=' . base_url() . 'assets/uploads/' . $data->dok_luar . '>Unduh</a></td>
                         <td>' . $data->id_user . '</td>
                     </tr>
                 ';

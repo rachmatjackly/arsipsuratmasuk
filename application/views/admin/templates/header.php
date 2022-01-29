@@ -17,6 +17,7 @@ name='viewport' />
 <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <!-- CSS Files -->
 <link href="<?= base_url() ?>assets/css/bootstrap.min.css" rel="stylesheet" />
 <link href="<?= base_url() ?>assets/css/paper-dashboard.css?v=2.0.1" rel="stylesheet" />
@@ -43,31 +44,31 @@ name='viewport' />
 </div>
 <div class="sidebar-wrapper">
     <ul class="nav">
-        <li class="active">
+        <li class="<?= $nav[0] ?>">
             <a href="<?= base_url() ?>admin">
                 <i class="nc-icon nc-bank"></i>
                 <p>Home</p>
             </a>
         </li>
-        <li>
+        <li class="<?= $nav[1] ?>">
             <a href="<?= base_url() ?>admin/surat_keluar">
                 <i class="nc-icon nc-minimal-up"></i>
                 <p>Surat Keluar</p>
             </a>
         </li>
-        <li>
+        <li class="<?= $nav[2] ?>">
             <a href="<?= base_url() ?>admin/surat_masuk">
                 <i class="nc-icon nc-minimal-down"></i>
                 <p>Surat Masuk</p>
             </a>
         </li>
-        <li>
+        <li class="<?= $nav[3] ?>">
             <a href="<?= base_url() ?>admin/pengumuman">
                 <i class="nc-icon nc-bullet-list-67"></i>
                 <p>Pengumuman</p>
             </a>
         </li>
-        <li>
+        <li class="<?= $nav[4] ?>">
             <a href="<?= base_url() ?>admin/user">
                 <i class="nc-icon nc-satisfied"></i>
                 <p>Admin</p>

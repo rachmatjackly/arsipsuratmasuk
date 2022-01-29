@@ -19,6 +19,7 @@ class Pengumuman extends CI_Controller {
             'isi_pengumuman' => $this->input->post('4'),
         );
 
+        $this->session->set_flashdata('add', 1);
         $this->Model_pengumuman->addPengumuman($data);
         redirect('admin/pengumuman');
     }
@@ -34,14 +35,14 @@ class Pengumuman extends CI_Controller {
             'isi_pengumuman' => $this->input->post('4'),
         );
 
+        $this->session->set_flashdata('update', 1);
         $this->Model_pengumuman->updatePengumuman($id, $data);
         redirect('admin/pengumuman');
     }
 
-    function delete_pengumuman($id)
+    function delete_pengumuman()
     {
-        $this->Model_pengumuman->deletePengumuman($id);
-        redirect('admin/pengumuman');
+        $this->Model_pengumuman->deletePengumuman($this->input->post("id"));
     }
 
     public function search()
@@ -54,6 +55,12 @@ class Pengumuman extends CI_Controller {
             foreach($querySearch as $data){
                 $output .='
                     <tr>
+                        <td style="width: 3%">
+                            <a
+                                href=' . base_url() . 'admin/pengumuman/' . $data['nm_pengumuman'] . '/edit>Edit</a>⠀⠀
+                            <a href=' . base_url() . 'pengumuman/delete_pengumuman/' . $data['nm_pengumuman'] . '
+                                OnClick="return confirm()">Hapus</a>
+                        </td>
                         <td>' . $data['nm_pengumuman'] . '</td>
                         <td>' . $data['tg_pengumuman'] . '</td>
                         <td>' . $data['id_user'] . '</td>

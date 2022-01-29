@@ -33,6 +33,7 @@ class User extends CI_Controller {
             "foto_user" => $dokumen['upload_data']['file_name']
         );
 
+        $this->session->set_flashdata('add', 1);
         $this->Model_user->addUser($data);
         redirect('admin/user');
     }
@@ -52,7 +53,8 @@ class User extends CI_Controller {
                 "alamat" => $this->input->post('4'),
                 "username" => $this->input->post('5'),
             );
-    
+            
+            $this->session->set_flashdata('update', 1);
             $this->Model_user->updateUser($id, $data);
             redirect('admin/user');
         }
@@ -67,7 +69,8 @@ class User extends CI_Controller {
                 "username" => $this->input->post('5'),
                 "password" => $this->input->post('6'),
             );
-    
+            
+            $this->session->set_flashdata('update', 1);
             $this->Model_user->updateUser($id, $data);
             redirect('admin/user');
         }
@@ -90,7 +93,8 @@ class User extends CI_Controller {
                 "username" => $this->input->post('5'),
                 "foto_user" => $dokumen['upload_data']['file_name']
             );
-    
+            
+            $this->session->set_flashdata('update', 1);
             $this->Model_user->updateUser($id, $data);
             redirect('admin/user');
         }
@@ -106,6 +110,7 @@ class User extends CI_Controller {
             "foto_user" => $dokumen['upload_data']['file_name']
         );
 
+        $this->session->set_flashdata('update', 1);
         $this->Model_user->updateUser($id, $data);
         redirect('admin/user');
     }

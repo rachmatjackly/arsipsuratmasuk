@@ -37,7 +37,7 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label>Isi Pengumuman</label>
-                                    <textarea name="4"><?= $data[0]->isi_pengumuman?>></textarea>
+                                    <textarea name="4"><?= $data[0]->isi_pengumuman?></textarea>
                                 </div>
                             </div>
                             <div class="col-md-12 d-flex justify-content-center">
