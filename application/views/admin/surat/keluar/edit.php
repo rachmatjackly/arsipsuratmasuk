@@ -27,7 +27,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Perihal Surat Keluar</label>
+                                    <label>Jenis Surat Keluar</label>
                                     <input type="text" required class="form-control" value="<?= $data[0]->perihal_luar ?>" name="3">
                                 </div>
                             </div>

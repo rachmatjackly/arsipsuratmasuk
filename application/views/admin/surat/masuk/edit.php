@@ -29,7 +29,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Perihal Surat Masuk</label>
+                                    <label>Jenis Surat Masuk</label>
                                     <input type="text" required class="form-control"
                                         value="<?= $data[0]->perihal_masuk ?>" name="3">
                                 </div>

@@ -27,7 +27,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Perihal Surat Masuk</label>
+                                    <label>Jenis Surat Masuk</label>
                                     <input type="text" required class="form-control" value="" name="3">
                                 </div>
                             </div>
@@ -106,7 +106,7 @@
                                 <th>Nomor Surat Masuk</th>
                                 <th>Tanggal Surat</th>
                                 <th>Tanggal Surat Diterima</th>
-                                <th>Perihal Surat Masuk</th>
+                                <th>Jenis Surat Masuk</th>
                                 <th>Judul Surat Masuk</th>
                                 <th>Pengirim Surat Masuk</th>
                                 <th>Penerima Surat Masuk</th>
