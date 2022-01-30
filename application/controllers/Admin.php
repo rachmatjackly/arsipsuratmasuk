@@ -48,7 +48,7 @@ class Admin extends CI_Controller {
         $data['data'] = $this->Model_surat->getSuratKeluarById($id);
         $data['title'] = "Halaman Edit Surat Keluar";
         $this->load->view('admin/templates/header', $data);
-        $this->load->view('admin/surat/keluar/edit');
+        $this->load->view('admin/surat/keluar/edit', $data);
         $this->load->view('admin/templates/footer');
     }
 
@@ -58,7 +58,7 @@ class Admin extends CI_Controller {
         $data['data'] = $this->Model_surat->getSuratMasukById($id);
         $data['title'] = "Halaman Edit Surat Keluar";
         $this->load->view('admin/templates/header', $data);
-        $this->load->view('admin/surat/masuk/edit');
+        $this->load->view('admin/surat/masuk/edit', $data);
         $this->load->view('admin/templates/footer');
     }
 
