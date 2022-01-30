@@ -28,7 +28,8 @@ class User extends CI_Controller {
             "email" => $this->input->post('3'),
             "username" => $this->input->post('5'),
             "password" => $this->input->post('6'),
-            "foto_user" => $dokumen['upload_data']['file_name']
+            "foto_user" => $dokumen['upload_data']['file_name'],
+            "status" => $this->input->post('status'),
         );
 
         $this->session->set_flashdata('add', 1);
@@ -48,6 +49,7 @@ class User extends CI_Controller {
                 "no_hp" => $this->input->post('2'),
                 "email" => $this->input->post('3'),
                 "username" => $this->input->post('5'),
+                "status" => $this->input->post('status'),
             );
             
             $this->session->set_flashdata('update', 1);
@@ -62,6 +64,7 @@ class User extends CI_Controller {
                 "email" => $this->input->post('3'),
                 "username" => $this->input->post('5'),
                 "password" => $this->input->post('6'),
+                "status" => $this->input->post('status'),
             );
             
             $this->session->set_flashdata('update', 1);
@@ -83,7 +86,8 @@ class User extends CI_Controller {
                 "no_hp" => $this->input->post('2'),
                 "email" => $this->input->post('3'),
                 "username" => $this->input->post('5'),
-                "foto_user" => $dokumen['upload_data']['file_name']
+                "foto_user" => $dokumen['upload_data']['file_name'],
+                "status" => $this->input->post('status'),
             );
             
             $this->session->set_flashdata('update', 1);
@@ -97,7 +101,8 @@ class User extends CI_Controller {
             "email" => $this->input->post('3'),
             "username" => $this->input->post('5'),
             "password" => $this->input->post('6'),
-            "foto_user" => $dokumen['upload_data']['file_name']
+            "foto_user" => $dokumen['upload_data']['file_name'],
+            "status" => $this->input->post('status'),
         );
 
         $this->session->set_flashdata('update', 1);

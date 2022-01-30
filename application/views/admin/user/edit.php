@@ -40,6 +40,15 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
+                                    <label>Status</label>
+                                    <select name="status" class="form-control">
+                                        <option value="1">Admin</option>
+                                        <option value="0">Operator</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
                                     <label>Foto Profil</label>
                                     <img src="<?= base_url() ?>assets/uploads/images/<?= $data[0]->foto_user ?>" class="col-md-5">
                                     <input type="file" name="file1" style="opacity: 100;position: inherit">
