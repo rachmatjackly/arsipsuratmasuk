@@ -9,12 +9,6 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Nomor Admin</label>
-                                    <input type="text" required class="form-control" value="<?= $data[0]->id_user ?>" name="0">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
                                     <label>Nama Lengkap</label>
                                     <input type="text" required class="form-control" value="<?= $data[0]->nama_user ?>" name="1">
                                 </div>
@@ -29,12 +23,6 @@
                                 <div class="form-group">
                                     <label>Email</label>
                                     <input type="email" required class="form-control" value="<?= $data[0]->email ?>" name="3">
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label>Alamat</label>
-                                    <input type="text" required class="form-control" value="<?= $data[0]->alamat ?>" name="4">
                                 </div>
                             </div>
                             <div class="col-md-6">

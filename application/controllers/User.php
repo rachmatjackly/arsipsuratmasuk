@@ -23,11 +23,9 @@ class User extends CI_Controller {
         }
         
         $data = array(
-            "id_user" => $this->input->post('0'),
             "nama_user" => $this->input->post('1'),
             "no_hp" => $this->input->post('2'),
             "email" => $this->input->post('3'),
-            "alamat" => $this->input->post('4'),
             "username" => $this->input->post('5'),
             "password" => $this->input->post('6'),
             "foto_user" => $dokumen['upload_data']['file_name']
@@ -46,11 +44,9 @@ class User extends CI_Controller {
 
         if($this->input->post('6') == "" && $_FILES['file1']['name'] == "") {
             $data = array(
-                "id_user" => str_replace(" ","",trim($this->input->post('0'))),
                 "nama_user" => $this->input->post('1'),
                 "no_hp" => $this->input->post('2'),
                 "email" => $this->input->post('3'),
-                "alamat" => $this->input->post('4'),
                 "username" => $this->input->post('5'),
             );
             
@@ -61,11 +57,9 @@ class User extends CI_Controller {
 
         if($_FILES['file1']['name'] == "" && $this->input->post('6') != "") {
             $data = array(
-                "id_user" => str_replace(" ","",trim($this->input->post('0'))),
                 "nama_user" => $this->input->post('1'),
                 "no_hp" => $this->input->post('2'),
                 "email" => $this->input->post('3'),
-                "alamat" => $this->input->post('4'),
                 "username" => $this->input->post('5'),
                 "password" => $this->input->post('6'),
             );
@@ -85,11 +79,9 @@ class User extends CI_Controller {
 
         if($_FILES['file1']['name'] != "" && $this->input->post('6') == "") {
             $data = array(
-                "id_user" => str_replace(" ","",trim($this->input->post('0'))),
                 "nama_user" => $this->input->post('1'),
                 "no_hp" => $this->input->post('2'),
                 "email" => $this->input->post('3'),
-                "alamat" => $this->input->post('4'),
                 "username" => $this->input->post('5'),
                 "foto_user" => $dokumen['upload_data']['file_name']
             );
@@ -100,11 +92,9 @@ class User extends CI_Controller {
         }
         
         $data = array(
-            "id_user" => str_replace(" ","",trim($this->input->post('0'))),
             "nama_user" => $this->input->post('1'),
             "no_hp" => $this->input->post('2'),
             "email" => $this->input->post('3'),
-            "alamat" => $this->input->post('4'),
             "username" => $this->input->post('5'),
             "password" => $this->input->post('6'),
             "foto_user" => $dokumen['upload_data']['file_name']

@@ -8,12 +8,6 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Nomor Admin</label>
-                                    <input type="text" required class="form-control" value="" name="0">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
                                     <label>Nama Lengkap</label>
                                     <input type="text" required class="form-control" value="" name="1">
                                 </div>
@@ -28,12 +22,6 @@
                                 <div class="form-group">
                                     <label>Email</label>
                                     <input type="email" required class="form-control" value="" name="3">
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label>Alamat</label>
-                                    <input type="text" required class="form-control" value="" name="4">
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -102,11 +90,9 @@
                         <table class="table">
                             <thead class=" text-primary">
                                 <th></th>
-                                <th>Nomor Admin</th>
                                 <th>Nama Lengkap</th>
                                 <th>Nomor Telepon</th>
                                 <th>Email</th>
-                                <th>Alamat</th>
                                 <th>Foto Admin</th>
                             </thead>
                             <tbody id="result">
@@ -116,11 +102,9 @@
                                         <a
                                             href="<?= base_url() ?>admin/user/<?= $data->id_user ?>/edit">Edit</a>⠀⠀
                                     </td>
-                                    <td><?= $data->id_user ?></td>
                                     <td><?= $data->nama_user ?></td>
                                     <td><?= $data->no_hp ?></td>
                                     <td><?= $data->email ?></td>
-                                    <td><?= $data->alamat?></td>
                                     <td><img src="<?= base_url() ?>assets/uploads/images/<?= $data->foto_user ?>" class="col-md-5"></td>
                                 </tr>
                                 <?php endforeach ?>
