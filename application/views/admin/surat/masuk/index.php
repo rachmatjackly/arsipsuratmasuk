@@ -45,12 +45,6 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Jenis Kegiatan Surat Masuk</label>
-                                    <input type="text" required class="form-control" value="" name="6">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
                                     <label>Penerima Surat Masuk</label>
                                     <input type="text" required class="form-control" value="" name="7">
                                 </div>
@@ -115,7 +109,6 @@
                                 <th>Perihal Surat Masuk</th>
                                 <th>Judul Surat Masuk</th>
                                 <th>Pengirim Surat Masuk</th>
-                                <th>Jenis Kegiatan Surat Masuk</th>
                                 <th>Penerima Surat Masuk</th>
                                 <th>Dokumen Surat Masuk</th>
                                 <th>Admin Yang Memasukan</th>
@@ -136,7 +129,6 @@
                                     <td><?= $data->perihal_masuk ?></td>
                                     <td><?= $data->judul_masuk ?></td>
                                     <td><?= $data->pengirim_masuk ?></td>
-                                    <td><?= $data->jk_masuk ?></td>
                                     <td><?= $data->penerima_masuk ?></td>
                                     <td><a href="<?= base_url() ?>/assets/uploads/<?= $data->dok_msk?>">Unduh</a></td>
                                     <td><?= $data->id_user ?></td>

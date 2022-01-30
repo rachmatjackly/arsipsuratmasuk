@@ -28,7 +28,6 @@ class Surat extends CI_Controller {
             "tg_sr_luar_lk" => $this->input->post('2'),
             "perihal_luar" => $this->input->post('3'),
             "judul_luar" => $this->input->post('4'),
-            "jk_luar" => $this->input->post('5'),
             "pembuat_sr_luar" => $this->input->post('6'),
             "penerima_sr_luar" => $this->input->post('7'),
             "dok_luar" => $dokumen['upload_data']['file_name'],
@@ -55,7 +54,6 @@ class Surat extends CI_Controller {
                 "tg_sr_luar_lk" => $this->input->post('2'),
                 "perihal_luar" => $this->input->post('3'),
                 "judul_luar" => $this->input->post('4'),
-                "jk_luar" => $this->input->post('5'),
                 "pembuat_sr_luar" => $this->input->post('6'),
                 "penerima_sr_luar" => $this->input->post('7'),
                 "id_user" => $this->session->nama,
@@ -78,7 +76,6 @@ class Surat extends CI_Controller {
             "tg_sr_luar_lk" => $this->input->post('2'),
             "perihal_luar" => $this->input->post('3'),
             "judul_luar" => $this->input->post('4'),
-            "jk_luar" => $this->input->post('5'),
             "pembuat_sr_luar" => $this->input->post('6'),
             "penerima_sr_luar" => $this->input->post('7'),
             "dok_luar" => $dokumen['upload_data']['file_name'],
@@ -116,7 +113,6 @@ class Surat extends CI_Controller {
             "perihal_masuk" => $this->input->post('3'),
             "judul_masuk" => $this->input->post('4'),
             "pengirim_masuk" => $this->input->post('5'),
-            "jk_masuk" => $this->input->post('6'),
             "penerima_masuk" => $this->input->post('7'),
             "dok_msk" => $dokumen['upload_data']['file_name'],
             "id_user" => $this->session->nama,
@@ -143,7 +139,6 @@ class Surat extends CI_Controller {
                 "perihal_masuk" => $this->input->post('3'),
                 "judul_masuk" => $this->input->post('4'),
                 "pengirim_masuk" => $this->input->post('5'),
-                "jk_masuk" => $this->input->post('6'),
                 "penerima_masuk" => $this->input->post('7'),
                 "id_user" => $this->session->nama,
             );
@@ -166,7 +161,6 @@ class Surat extends CI_Controller {
             "perihal_masuk" => $this->input->post('3'),
             "judul_masuk" => $this->input->post('4'),
             "pengirim_masuk" => $this->input->post('5'),
-            "jk_masuk" => $this->input->post('6'),
             "penerima_masuk" => $this->input->post('7'),
             "dok_msk" => $dokumen['upload_data']['file_name'],
             "id_user" => $this->session->nama,
@@ -217,7 +211,6 @@ class Surat extends CI_Controller {
                         <td>' . $data->perihal_masuk . '</td>
                         <td>' . $data->judul_masuk . '</td>
                         <td>' . $data->pengirim_masuk . '</td>
-                        <td>' . $data->jk_masuk . '</td>
                         <td>' . $data->penerima_masuk .'</td>
                         <td><a href=' . base_url() . 'assets/uploads/' . $data->dok_msk . '>Unduh</a></td>
                         <td>' . $data->id_user . '</td>
@@ -252,7 +245,6 @@ class Surat extends CI_Controller {
                         <td>' . $data->perihal_luar . '</td>
                         <td>' . $data->judul_luar . '</td>
                         <td>' . $data->pembuat_sr_luar . '</td>
-                        <td>' . $data->jk_luar . '</td>
                         <td>' . $data->penerima_sr_luar .'</td>
                         <td><a href=' . base_url() . 'assets/uploads/' . $data->dok_luar . '>Unduh</a></td>
                         <td>' . $data->id_user . '</td>

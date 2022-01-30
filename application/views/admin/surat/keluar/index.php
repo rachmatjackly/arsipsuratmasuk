@@ -45,12 +45,6 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Jenis Kegiatan Surat</label>
-                                    <input type="text" required class="form-control" value="" name="6">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
                                     <label>Penerima Surat Keluar</label>
                                     <input type="text" required class="form-control" value="" name="7">
                                 </div>
@@ -115,7 +109,6 @@
                                 <th>Perihal Surat Keluar</th>
                                 <th>Judul Surat Keluar</th>
                                 <th>Pembuat Surat Keluar</th>
-                                <th>Jenis Kegiatan Surat</th>
                                 <th>Penerima Surat Keluar</th>
                                 <th>Dokumen Surat Keluar</th>
                                 <th>Admin Yang Memasukan</th>
@@ -136,7 +129,6 @@
                                     <td><?= $data->perihal_luar ?></td>
                                     <td><?= $data->judul_luar ?></td>
                                     <td><?= $data->pembuat_sr_luar ?></td>
-                                    <td><?= $data->jk_luar ?></td>
                                     <td><?= $data->penerima_sr_luar ?></td>
                                     <td><a href="<?= base_url() ?>/assets/uploads/<?= $data->dok_luar?>">Unduh</a></td>
                                     <td><?= $data->id_user ?></td>

@@ -45,12 +45,6 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Jenis Kegiatan Surat</label>
-                                    <input type="text" required class="form-control" value="<?= $data[0]->jk_luar ?>" name="6">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
                                     <label>Penerima Surat Keluar</label>
                                     <input type="text" required class="form-control" value="<?= $data[0]->penerima_sr_luar ?>" name="7">
                                 </div>

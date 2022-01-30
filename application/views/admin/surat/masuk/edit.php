@@ -50,13 +50,6 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Jenis Kegiatan Surat Masuk</label>
-                                    <input type="text" required class="form-control"
-                                        value="<?= $data[0]->jk_masuk ?>" name="6">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
                                     <label>Penerima Surat Masuk</label>
                                     <input type="text" required class="form-control"
                                         value="<?= $data[0]->penerima_masuk ?>" name="7">
