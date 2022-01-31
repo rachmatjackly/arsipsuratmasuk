@@ -68,12 +68,14 @@ name='viewport' />
                 <p>Pengumuman</p>
             </a>
         </li>
+        <?php if($this->session->status == 1) : ?>
         <li class="<?= $nav[4] ?>">
             <a href="<?= base_url() ?>admin/user">
                 <i class="nc-icon nc-satisfied"></i>
                 <p>Admin</p>
             </a>
         </li>
+        <?php endif ?>
         <li>
             <a href="<?= base_url() ?>admin/logout">
                 <i class="nc-icon nc-button-power"></i>

@@ -28,7 +28,8 @@ class Authentication extends CI_Controller {
         if ($checkUser) {
             $session = array(
                 "login" => True,
-                "nama" => $checkUser[0]->nama_user
+                "nama" => $checkUser[0]->nama_user,
+                "status" => $checkUser[0]->status
             );
             $this->session->set_userdata($session);
 

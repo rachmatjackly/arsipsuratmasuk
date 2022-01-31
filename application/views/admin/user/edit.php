@@ -42,8 +42,8 @@
                                 <div class="form-group">
                                     <label>Status</label>
                                     <select name="status" class="form-control">
-                                        <option value="1">Admin</option>
-                                        <option value="0">Operator</option>
+                                        <option value="1" <?= ($data[0]->status == 1)? "selected" : "" ?>>Admin</option>
+                                        <option value="0" <?= ($data[0]->status == 0)? "selected" : "" ?>>Operator</option>
                                     </select>
                                 </div>
                             </div>
