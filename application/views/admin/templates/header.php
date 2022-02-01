@@ -23,6 +23,7 @@ name='viewport' />
 <link href="<?= base_url() ?>assets/css/paper-dashboard.css?v=2.0.1" rel="stylesheet" />
 <!-- CSS Just for demo purpose, don't include it in your project -->
 <link href="<?= base_url() ?>assets/demo/demo.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>
 </head>
 
 <body class="">

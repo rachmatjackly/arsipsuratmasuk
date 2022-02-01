@@ -17,6 +17,9 @@ class Admin extends CI_Controller {
     {
         $data['nav'] = ["active","","","",""];
         $data['title'] = "Halaman Utama Admin";
+
+        $data['grafik_data'] = $this->count_data();
+        
         $this->load->view('admin/templates/header', $data);
         $this->load->view('admin/index');
         $this->load->view('admin/templates/footer');
@@ -110,6 +113,39 @@ class Admin extends CI_Controller {
         $this->load->view('admin/templates/header', $data);
         $this->load->view('admin/user/edit', $data);
         $this->load->view('admin/templates/footer');
+    }
+
+    private function count_data()
+    {
+        $bulan = date("m-Y");
+        $pengumuman = $this->Model_pengumuman->getPengumumanByMonth($bulan);
+        $surat_masuk = $this->Model_surat->getSuratMasukByMonth($bulan);
+        $surat_keluar = $this->Model_surat->getSuratKeluarByMonth($bulan);
+
+        $data = array($pengumuman, $surat_masuk, $surat_keluar);
+        return $data;
+    }
+
+    public function count()
+    {
+        $bulan = date("m-Y");
+        $pengumuman = $this->Model_pengumuman->getPengumumanByMonth($bulan);
+        $surat_masuk = $this->Model_surat->getSuratMasukByMonth($bulan);
+        $surat_keluar = $this->Model_surat->getSuratKeluarByMonth($bulan);
+
+        $data = array($pengumuman, $surat_masuk, $surat_keluar);
+        echo json_encode($data);
+    }
+
+    public function count_year()
+    {
+        $year = date("Y");
+        $pengumuman = $this->Model_pengumuman->getPengumumanByYear($year);
+        $surat_masuk = $this->Model_surat->getSuratMasukByYear($year);
+        $surat_keluar = $this->Model_surat->getSuratKeluarByYear($year);
+
+        $data = array($pengumuman, $surat_masuk, $surat_keluar);
+        echo json_encode($data);
     }
 
     function logout()
