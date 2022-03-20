@@ -1,4 +1,16 @@
-<div class="content">
+<!-- container -->
+<div class="container-fluid">
+
+    <!-- breadcrumb -->
+    <div class="breadcrumb-header justify-content-between">
+        <div class="left-content">
+            <div>
+                <h2 class="main-content-title tx-24 mg-b-1 mg-b-lg-1"><?= $title ?></h2>
+            </div>
+        </div>
+    </div>
+    <!-- breadcrumb -->
+
     <!-------------INPUT--------->
     <form method="post" enctype="multipart/form-data" action="<?= base_url() ?>pengumuman/save_pengumuman">
         <div class="row">
@@ -34,7 +46,7 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label>Isi Pengumuman</label>
-                                    <textarea name="4"></textarea>
+                                    <textarea class="form-control" name="4" id="quillEditor" rows="3"></textarea>
                                 </div>
                             </div>
                             <div class="col-md-12 d-flex justify-content-center">
@@ -50,39 +62,14 @@
             </div>
         </div>
     </form>
-    <!--------------Cari-------->
-    <form method="post" enctype="multipart/form-data">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-10">
-                                <div class="form-group">
-                                    <label>Kata Kunci</label>
-                                    <input type="text" class="form-control" name="t_cari" value="" id="search"
-                                        placeholder="Cari">
-                                </div>
-                            </div>
-                            <div class="col-md-2 ">
-                                <div class="form-group">
-                                    <label></label><br>
-                                    <button class="btn btn-primary btn-round" name="b_cari" type="submit">Cari</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </form>
+
     <!---------TABEL------->
     <div class="row">
         <div class="col-md-12">
             <div class="card">
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table">
+                        <table class="table text-md-nowrap" id="example1">
                             <thead class=" text-primary">
                                 <th></th>
                                 <th>Nomor Pengumuman</th>
@@ -100,7 +87,7 @@
                                     <td style="width: 3%">
                                         <a
                                             href="<?= base_url();?>admin/pengumuman/<?= $data->nm_pengumuman ?>/edit">Edit</a>⠀⠀
-                                        <a href="#" id="delete" data-id="<?= $data->nm_pengumuman?>">Hapus</a>
+                                        <a href="#" class="delete" data-id="<?= $data->nm_pengumuman?>">Hapus</a>
                                     </td>
                                     <td><?= $data->nm_pengumuman?></td>
                                     <td><?= $data->tg_pengumuman?></td>
@@ -122,63 +109,41 @@
     <!--------HALAMAN-------->
 
 </div>
+</div>
 
-<script>
-CKEDITOR.replace('4');
-CKEDITOR.replace('editor2');
-
-function getData() {
-    //Get data written in first Editor   
-    var editor_data = CKEDITOR.instances['editor1'].getData();
-    //Set data in Second Editor which is written in first Editor  
-    CKEDITOR.instances['editor2'].setData(editor_data);
-}
-</script>
+<!-- JQuery min js -->
+<script src="<?= base_url() ?>assets/plugins/jquery/jquery.min.js"></script>
 
 <script>
 $(document).ready(function() {
-    $('#search').keyup(function() {
-        var search = $(this).val();
-        $.ajax({
-            url: "<?= base_url() ?>pengumuman/search",
-            type: "post",
-            data: {
-                search: search,
-            },
-            success: function(data) {
-                $('#result').html(data);
-            }
-        })
-    });
+    $(".delete").each(function() {
+        $(".delete").click(function() {
+            var id = $(this).data("id");
+            swal({
+                    title: "Are you sure?",
+                    text: "You won't be able to revert this!",
+                    type: "warning",
+                    showCancelButton: true,
+                    confirmButtonClass: "btn btn-danger",
+                    confirmButtonText: "Yes, delete it!",
+                    closeOnConfirm: false
+                },
+                function() {
+                    $.ajax({
+                        url: "<?= base_url()?>/pengumuman/delete_pengumuman/",
+                        type: "post",
+                        data: "id=" + id,
+                        success: function() {
+                            swal("Deleted!", "Your data has been deleted.",
+                                "success");
+                            setTimeout(function() {
+                                window.location.reload(1);
+                            }, 1500);
+                        }
+                    })
 
-    $("#delete").click(function() {
-        var id = $(this).data("id");
-        Swal.fire({
-            title: 'Are you sure?',
-            text: "You won't be able to revert this!",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                $.ajax({
-                    url: "<?= base_url()?>/pengumuman/delete_pengumuman/",
-                    type: "post",
-                    data: "id=" + id,
-                    success: function() {
-                        Swal.fire(
-                            'Deleted!',
-                            'Your data has been deleted.',
-                            'success'
-                        );
-                        setTimeout(function() {
-                            window.location.reload(1);
-                        }, 1500);
-                    }
-                })
-            }
+                });
+
         })
     })
 });

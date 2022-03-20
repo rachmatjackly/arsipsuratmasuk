@@ -19,10 +19,10 @@ class Model_pengumuman extends CI_Model {
         return $this->db->get('tb_pengumuman')->result_array();
     }
 
-    public function getPengumumanByMonth($bulan)
+    public function getPengumumanByMonth($year, $month)
     {
-        $this->db->where("DATE_FORMAT(tg_pengumuman,'%m-%Y')", $bulan);
-        return $this->db->get('tb_pengumuman')->num_rows();
+        $query = $this->db->query("Select * from tb_pengumuman where YEAR(tg_pengumuman) = $year and MONTH(tg_pengumuman) = $month");
+        return $query->num_rows();
     }
 
     public function getPengumumanByYear($year)

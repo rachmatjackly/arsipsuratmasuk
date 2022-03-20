@@ -32,16 +32,16 @@ class Model_surat extends CI_Model {
         return $this->db->get_where('tb_surat_masuk', ['nm_sr_masuk' => $id])->result();
     }
 
-    function getSuratMasukByMonth($bulan)
+    function getSuratMasukByMonth($year, $month)
     {
-        $this->db->where("DATE_FORMAT(tg_sr_masuk,'%m-%Y')", $bulan);
-        return $this->db->get('tb_surat_masuk')->num_rows();
+        $query = $this->db->query("Select * from tb_surat_masuk where YEAR(tg_sr_masuk) = $year and MONTH(tg_sr_masuk) = $month");
+        return $query->num_rows();
     }
 
-    function getSuratKeluarByMonth($bulan)
+    function getSuratKeluarByMonth($year, $month)
     {
-        $this->db->where("DATE_FORMAT(tg_sr_luar_bt,'%m-%Y')", $bulan);
-        return $this->db->get('tb_surat_keluar')->num_rows();
+        $query = $this->db->query("Select * from tb_surat_keluar where YEAR(tg_sr_luar_bt) = $year and MONTH(tg_sr_luar_bt) = $month");
+        return $query->num_rows();
     }
 
     function getSuratMasukByYear($year)

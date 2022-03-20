@@ -1,119 +1,106 @@
-<div class="content">
+<!-- container -->
+<div class="container-fluid">
 
-    <!-------------INPUT--------->
-    <form method="post" action="<?= base_url() ?>surat/save_surat_keluar" enctype="multipart/form-data">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label>Nomor Surat Keluar</label>
-                                    <input type="text" required class="form-control" value="" name="0">
+    <!-- breadcrumb -->
+    <div class="breadcrumb-header justify-content-between">
+        <div class="left-content">
+            <div>
+                <h2 class="main-content-title tx-24 mg-b-1 mg-b-lg-1"><?= $title ?></h2>
+            </div>
+        </div>
+    </div>
+    <!-- breadcrumb -->
+
+    <!-- row opened -->
+    <div class="row row-sm">
+        <div class="col-md-12 col-lg-12 col-xl-12">
+            <div class="card">
+                <div class="card-body">
+                    <form method="post" action="<?= base_url() ?>surat/save_surat_keluar" enctype="multipart/form-data">
+                        <div class="">
+                            <div class="form-group">
+                                <label for="exampleInputtext1">Nomor Surat Keluar</label>
+                                <input type="text" class="form-control" id="exampleInputtext1" name="0">
+                            </div>
+                            <div class="row row-xs">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Tanggal Surat Dibuat</label>
+                                        <input type="date" required class="form-control" name="1">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Tanggal Pelaksanaan Kegiatan</label>
+                                        <input type="date" required class="form-control" name="2">
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Tanggal Surat Dibuat</label>
-                                    <input type="date" required class="form-control" value="" name="1">
+                            <div class="row row-xs">
+                                <div class="form-group col-lg-6">
+                                    <label for="exampleInputtext1">Jenis Surat Keluar</label>
+                                    <input type="text" class="form-control" id="exampleInputtext1" name="3">
+                                </div>
+                                <div class="form-group col-lg-6">
+                                    <label for="exampleInputtext1">Judul Surat Keluar</label>
+                                    <input type="text" class="form-control" id="exampleInputtext1" name="4">
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Tanggal Pelaksanaan Kegiatan</label>
-                                    <input type="date" required class="form-control" value="" name="2">
+                            <div class="row row-xs">
+                                <div class="form-group col-lg-6">
+                                    <label for="exampleInputtext1">Pembuat Surat Keluar</label>
+                                    <input type="text" class="form-control" id="exampleInputtext1" name="5">
+                                </div>
+                                <div class="form-group col-lg-6">
+                                    <label for="exampleInputtext1">Penerima Surat Keluar</label>
+                                    <input type="text" class="form-control" id="exampleInputtext1" name="7">
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Jenis Surat Keluar</label>
-                                    <input type="text" required class="form-control" value="" name="3">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Judul Surat Keluar</label>
-                                    <input type="text" required class="form-control" value="" name="4">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Pembuat Surat Keluar</label>
-                                    <input type="text" required class="form-control" value="" name="5">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Penerima Surat Keluar</label>
-                                    <input type="text" required class="form-control" value="" name="7">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Dokumen Surat Keluar</label>
-                                    <input type="file" name="file1" style="opacity: 100;position: inherit">
-                                </div>
-                            </div>
-                            <div class="col-md-12 d-flex justify-content-center">
-                                <div class="form-group">
-                                    <label></label><br>
-                                    <button class="btn btn-primary btn-round" name="simpan"
-                                        type="submit">Simpan</button>
+                            <div class="row row-sm">
+                                <label for="exampleInputtext1">Dokumen Surat Keluar</label>
+                                <div class="col-sm-7 col-md-6 col-lg-4">
+                                    <div class="input-group file-browser">
+                                        <input type="text" class="form-control border-right-0 browse-file"
+                                            placeholder="choose" readonly>
+                                        <label class="input-group-btn">
+                                            <span class="btn btn-default">
+                                                Browse <input type="file" name="file1" class="d-none" multiple>
+                                            </span>
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                        <button type="submit" class="btn btn-primary mt-3 mb-0">Submit</button>
+                    </form>
                 </div>
             </div>
         </div>
-    </form>
-    <!--------------Cari-------->
-    <form method="post" enctype="multipart/form-data">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-10">
-                                <div class="form-group">
-                                    <label>Kata Kunci</label>
-                                    <input type="text" class="form-control" name="t_cari" id="search" value=""
-                                        placeholder="Cari">
-                                </div>
-                            </div>
-                            <div class="col-md-2 ">
-                                <div class="form-group">
-                                    <label></label><br>
-                                    <button class="btn btn-primary btn-round" name="b_cari" type="submit">Cari</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </form>
-    <!---------TABEL------->
-    <div class="row">
-        <div class="col-md-12">
+    </div>
+    <!-- row closed -->
+
+    <!-- row opened -->
+    <div class="row row-sm">
+        <div class="col-md-12 col-lg-12 col-xl-12">
             <div class="card">
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table" style="width: 200%">
-                            <thead class=" text-primary">
-                                <th></th>
-                                <th>Nomor Surat Keluar</th>
-                                <th>Tanggal Surat Dibuat</th>
-                                <th>Tanggal Pelaksanaan Kegiatan</th>
-                                <th>Jenis Surat Keluar</th>
-                                <th>Judul Surat Keluar</th>
-                                <th>Pembuat Surat Keluar</th>
-                                <th>Penerima Surat Keluar</th>
-                                <th>Dokumen Surat Keluar</th>
-                                <th>Admin Yang Memasukan</th>
+                        <table class="table text-md-nowrap" id="example1">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th class="wd-15p border-bottom-0">Nomor Surat Keluar</th>
+                                    <th class="wd-15p border-bottom-0">Tanggal Surat Dibuat</th>
+                                    <th class="wd-20p border-bottom-0">Tanggal Pelaksanaan Kegiatan</th>
+                                    <th class="wd-15p border-bottom-0">Jenis Surat Keluar</th>
+                                    <th class="wd-10p border-bottom-0">Judul Surat Keluar</th>
+                                    <th class="wd-25p border-bottom-0">Pembuat Surat Keluar</th>
+                                    <th class="wd-15p border-bottom-0">Penerima Surat Keluar</th>
+                                    <th class="wd-10p border-bottom-0">Dokumen Surat Keluar</th>
+                                    <th class="wd-25p border-bottom-0">Admin Yang Memasukan</th>
+                                </tr>
                             </thead>
-                            <tbody id="result">
+                            <tbody>
                                 <?php
                                     foreach($surat_keluar as $data) :
                                 ?>
@@ -141,61 +128,47 @@
             </div>
         </div>
     </div>
-    <!--------HALAMAN-------->
+    <!-- row closed -->
 
 </div>
+<!-- /Container -->
+</div>
+<!-- /main-content -->
+
+<!-- JQuery min js -->
+<script src="<?= base_url() ?>assets/plugins/jquery/jquery.min.js"></script>
 
 <script>
 $(document).ready(function() {
-    $("#search").keyup(function() {
-        var search = $(this).val();
-        console.log(search);
-        $.ajax({
-            type: "post",
-            url: "<?= base_url() ?>surat/search/keluar",
-            data: {
-                search: search,
-            },
-            success: function(data) {
-                $("#result").html(data);
-            }
-        });
-    });
-
     $(".delete").each(function() {
         $(".delete").click(function() {
             var id = $(this).data("id");
-            Swal.fire({
-                title: 'Are you sure?',
-                text: "You won't be able to revert this!",
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Yes, delete it!'
-            }).then((result) => {
-                if (result.isConfirmed) {
+            swal({
+                    title: "Are you sure?",
+                    text: "You won't be able to revert this!",
+                    type: "warning",
+                    showCancelButton: true,
+                    confirmButtonClass: "btn btn-danger",
+                    confirmButtonText: "Yes, delete it!",
+                    closeOnConfirm: false
+                },
+                function() {
                     $.ajax({
                         url: "<?= base_url()?>/surat/delete_surat_keluar/",
                         type: "post",
                         data: "id=" + id,
                         success: function() {
-                            Swal.fire(
-                                'Deleted!',
-                                'Your data has been deleted.',
-                                'success'
-                            );
+                            swal("Deleted!", "Your data has been deleted.",
+                                "success");
                             setTimeout(function() {
                                 window.location.reload(1);
                             }, 1500);
                         }
                     })
-                }
-            })
+
+                });
+
         })
     })
-
-
-
 });
 </script>

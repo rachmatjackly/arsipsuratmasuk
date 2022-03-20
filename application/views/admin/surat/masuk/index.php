@@ -1,4 +1,15 @@
-<div class="content">
+<!-- container -->
+<div class="container-fluid">
+
+    <!-- breadcrumb -->
+    <div class="breadcrumb-header justify-content-between">
+        <div class="left-content">
+            <div>
+                <h2 class="main-content-title tx-24 mg-b-1 mg-b-lg-1"><?= $title ?></h2>
+            </div>
+        </div>
+    </div>
+    <!-- breadcrumb -->
 
     <!-------------INPUT--------->
     <form method="post" enctype="multipart/form-data" action="<?= base_url() ?>surat/save_surat_masuk">
@@ -49,10 +60,18 @@
                                     <input type="text" required class="form-control" value="" name="7">
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Dokumen Surat Masuk</label>
-                                    <input type="file" name="file1" style="opacity: 100;position: inherit">
+                            <div class="row row-sm">
+                            <label for="exampleInputtext1">Dokumen Surat Masuk</label>
+                                <div class="col-sm-7 col-md-6 col-lg-4">
+                                    <div class="input-group file-browser">
+                                        <input type="text" class="form-control border-right-0 browse-file"
+                                            placeholder="choose" readonly>
+                                        <label class="input-group-btn">
+                                            <span class="btn btn-default">
+                                                Browse <input type="file" name="file1" class="d-none" multiple>
+                                            </span>
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-12 d-flex justify-content-center">
@@ -68,50 +87,25 @@
             </div>
         </div>
     </form>
-    <!--------------Cari-------->
-    <form method="post" enctype="multipart/form-data">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-10">
-                                <div class="form-group">
-                                    <label>Kata Kunci</label>
-                                    <input type="text" class="form-control" name="t_cari" id="search" value=""
-                                        placeholder="Cari">
-                                </div>
-                            </div>
-                            <div class="col-md-2 ">
-                                <div class="form-group">
-                                    <label></label><br>
-                                    <button class="btn btn-primary btn-round" name="b_cari" type="submit">Cari</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </form>
+
     <!---------TABEL------->
     <div class="row">
         <div class="col-md-12">
             <div class="card">
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table" style="width: 200%">
-                            <thead class=" text-primary">
+                        <table class="table text-md-nowrap" id="example1">
+                            <thead>
                                 <th></th>
-                                <th>Nomor Surat Masuk</th>
-                                <th>Tanggal Surat</th>
-                                <th>Tanggal Surat Diterima</th>
-                                <th>Jenis Surat Masuk</th>
-                                <th>Judul Surat Masuk</th>
-                                <th>Pengirim Surat Masuk</th>
-                                <th>Penerima Surat Masuk</th>
-                                <th>Dokumen Surat Masuk</th>
-                                <th>Admin Yang Memasukan</th>
+                                <th class="wd-15p border-bottom-0">Nomor Surat Masuk</th>
+                                <th class="wd-15p border-bottom-0">Tanggal Surat</th>
+                                <th class="wd-15p border-bottom-0">Tanggal Surat Diterima</th>
+                                <th class="wd-15p border-bottom-0">Jenis Surat Masuk</th>
+                                <th class="wd-15p border-bottom-0">Judul Surat Masuk</th>
+                                <th class="wd-15p border-bottom-0">Pengirim Surat Masuk</th>
+                                <th class="wd-15p border-bottom-0">Penerima Surat Masuk</th>
+                                <th class="wd-15p border-bottom-0">Dokumen Surat Masuk</th>
+                                <th class="wd-15p border-bottom-0">Admin Yang Memasukan</th>
                             </thead>
                             <tbody id="result">
                                 <?php 
@@ -144,57 +138,42 @@
     <!--------HALAMAN-------->
 
 </div>
+</div>
+
+<!-- JQuery min js -->
+<script src="<?= base_url() ?>assets/plugins/jquery/jquery.min.js"></script>
 
 <script>
 $(document).ready(function() {
-    $("#search").keyup(function() {
-        // $(this).empty();
-        var search = $(this).val();
-        console.log(search);
-        $.ajax({
-            type: "post",
-            url: "<?= base_url() ?>surat/search/masuk",
-            data: {
-                search: search,
-            },
-            success: function(data) {
-                $("#result").html(data);
-            }
-        });
-    });
-
     $(".delete").each(function() {
         $(".delete").click(function() {
             var id = $(this).data("id");
-            Swal.fire({
-                title: 'Are you sure?',
-                text: "You won't be able to revert this!",
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Yes, delete it!'
-            }).then((result) => {
-                if (result.isConfirmed) {
+            swal({
+                    title: "Are you sure?",
+                    text: "You won't be able to revert this!",
+                    type: "warning",
+                    showCancelButton: true,
+                    confirmButtonClass: "btn btn-danger",
+                    confirmButtonText: "Yes, delete it!",
+                    closeOnConfirm: false
+                },
+                function() {
                     $.ajax({
                         url: "<?= base_url()?>/surat/delete_surat_masuk/",
                         type: "post",
                         data: "id=" + id,
                         success: function() {
-                            Swal.fire(
-                                'Deleted!',
-                                'Your data has been deleted.',
-                                'success'
-                            );
+                            swal("Deleted!", "Your data has been deleted.",
+                                "success");
                             setTimeout(function() {
                                 window.location.reload(1);
                             }, 1500);
                         }
                     })
-                }
-            })
+
+                });
+
         })
     })
-
 });
 </script>
