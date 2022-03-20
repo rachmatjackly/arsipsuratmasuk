@@ -18,10 +18,12 @@ class Admin extends CI_Controller {
         $data['nav'] = ["active","","","",""];
         $data['title'] = "Halaman Utama Admin";
 
-        $data['grafik_data'] = $this->count_data();
+        $data['pengumuman'] = $this->count_pengumuman();
+        $data['surat_masuk'] = $this->count_surat_masuk();
+        $data['surat_keluar'] = $this->count_surat_keluar();
         
         $this->load->view('admin/templates/header', $data);
-        $this->load->view('admin/index');
+        $this->load->view('admin/index', $data);
         $this->load->view('admin/templates/footer');
     }
 
@@ -115,16 +117,39 @@ class Admin extends CI_Controller {
         $this->load->view('admin/templates/footer');
     }
 
-    private function count_data()
+    private function count_pengumuman()
     {
-        $bulan = date("m-Y");
-        $pengumuman = $this->Model_pengumuman->getPengumumanByMonth($bulan);
-        $surat_masuk = $this->Model_surat->getSuratMasukByMonth($bulan);
-        $surat_keluar = $this->Model_surat->getSuratKeluarByMonth($bulan);
-
-        $data = array($pengumuman, $surat_masuk, $surat_keluar);
-        return $data;
+        $year = date("Y");
+        $month = date("m");
+        for($i=0; $i < 13; $i++){
+            $pengumuman[$i] = $this->Model_pengumuman->getPengumumanByMonth($year, $i);
+        }
+        return $pengumuman;
     }
+
+    private function count_surat_masuk()
+    {
+        $year = date("Y");
+        $month = date("m");
+        for($i=0; $i < 13; $i++){
+            $surat_masuk[$i] = $this->Model_surat->getSuratMasukByMonth($year, $i);
+        }
+        $surat_masuk = $surat_masuk;
+        return $surat_masuk;
+    }
+
+
+    private function count_surat_keluar()
+    {
+        $year = date("Y");
+        $month = date("m");
+        for($i=0; $i < 13; $i++){
+            $surat_keluar[$i] = $this->Model_surat->getSuratKeluarByMonth($year, $i);
+        }
+        $surat_keluar = $surat_keluar;
+        return $surat_keluar;
+    }
+
 
     public function count()
     {

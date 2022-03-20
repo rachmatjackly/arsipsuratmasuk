@@ -1,4 +1,16 @@
-<div class="content">
+<!-- container -->
+<div class="container-fluid">
+
+    <!-- breadcrumb -->
+    <div class="breadcrumb-header justify-content-between">
+        <div class="left-content">
+            <div>
+                <h2 class="main-content-title tx-24 mg-b-1 mg-b-lg-1"><?= $title ?></h2>
+            </div>
+        </div>
+    </div>
+    <!-- breadcrumb -->
+
     <!-------------INPUT--------->
     <form method="post" enctype="multipart/form-data" action="<?= base_url() ?>pengumuman/update_pengumuman/<?= $data[0]->nm_pengumuman ?>">
         <div class="row">
@@ -37,7 +49,7 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label>Isi Pengumuman</label>
-                                    <textarea name="4"><?= $data[0]->isi_pengumuman?></textarea>
+                                    <textarea class="form-control" name="4"><?= $data[0]->isi_pengumuman?></textarea>
                                 </div>
                             </div>
                             <div class="col-md-12 d-flex justify-content-center">
@@ -56,14 +68,4 @@
 
 </div>
 
-<script>
-CKEDITOR.replace('4');
-CKEDITOR.replace('editor2');
-
-function getData() {
-    //Get data written in first Editor   
-    var editor_data = CKEDITOR.instances['editor1'].getData();
-    //Set data in Second Editor which is written in first Editor  
-    CKEDITOR.instances['editor2'].setData(editor_data);
-}
-</script>
+</div>

@@ -1,4 +1,15 @@
-      <div class="content">
+      <!-- container -->
+      <div class="container-fluid">
+
+          <!-- breadcrumb -->
+          <div class="breadcrumb-header justify-content-between">
+              <div class="left-content">
+                  <div>
+                      <h2 class="main-content-title tx-24 mg-b-1 mg-b-lg-1"><?= $title ?></h2>
+                  </div>
+              </div>
+          </div>
+          <!-- breadcrumb -->
           <!--------------isi pengumuman-------->
           <form method="post" enctype="multipart/form-data">
               <div class="row">
@@ -44,4 +55,5 @@
           </form>
           <!--------HALAMAN-------->
 
+      </div>
       </div>

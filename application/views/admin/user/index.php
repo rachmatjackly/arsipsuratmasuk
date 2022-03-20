@@ -1,4 +1,15 @@
-<div class="content">
+<!-- container -->
+<div class="container-fluid">
+
+    <!-- breadcrumb -->
+    <div class="breadcrumb-header justify-content-between">
+        <div class="left-content">
+            <div>
+                <h2 class="main-content-title tx-24 mg-b-1 mg-b-lg-1"><?= $title ?></h2>
+            </div>
+        </div>
+    </div>
+    <!-- breadcrumb -->
     <!-------------INPUT--------->
     <form method="post" enctype="multipart/form-data" action="<?= base_url() ?>user/save_user">
         <div class="row">
@@ -45,10 +56,18 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Foto Profil</label>
-                                    <input type="file" name="file1" style="opacity: 100;position: inherit">
+                            <div class="row row-sm">
+                                <label for="exampleInputtext1">Foto Profil</label>
+                                <div class="col-sm-7 col-md-6 col-lg-4">
+                                    <div class="input-group file-browser">
+                                        <input type="text" class="form-control border-right-0 browse-file"
+                                            placeholder="choose" readonly>
+                                        <label class="input-group-btn">
+                                            <span class="btn btn-default">
+                                                Browse <input type="file" name="file1" class="d-none" multiple>
+                                            </span>
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-12 d-flex justify-content-center">
@@ -64,40 +83,15 @@
             </div>
         </div>
     </form>
-    <!--------------Cari-------->
-    <form method="post" enctype="multipart/form-data">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-10">
-                                <div class="form-group">
-                                    <label>Kata Kunci</label>
-                                    <input type="text" class="form-control" name="t_cari"
-                                        value="" id="search" placeholder="Cari">
-                                </div>
-                            </div>
-                            <div class="col-md-2 ">
-                                <div class="form-group">
-                                    <label></label><br>
-                                    <button class="btn btn-primary btn-round" name="b_cari" type="submit">Cari</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </form>
+    
     <!---------TABEL------->
     <div class="row">
         <div class="col-md-12">
             <div class="card">
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table">
-                            <thead class=" text-primary">
+                        <table class="table text-md-nowrap" id="example1">
+                            <thead>
                                 <th></th>
                                 <th>Nama Lengkap</th>
                                 <th>Nomor Telepon</th>
@@ -114,7 +108,7 @@
                                     <td><?= $data->nama_user ?></td>
                                     <td><?= $data->no_hp ?></td>
                                     <td><?= $data->email ?></td>
-                                    <td><img src="<?= base_url() ?>assets/uploads/images/<?= $data->foto_user ?>" class="col-md-5"></td>
+                                    <td><img src="<?= base_url() ?>assets/uploads/images/<?= $data->foto_user ?>" class="img-thumbnail wd-100p wd-sm-200"></td>
                                 </tr>
                                 <?php endforeach ?>
                             </tbody>
@@ -128,20 +122,4 @@
 
 </div>
 
-<script>
-  $(document).ready(function() {
-    $('#search').keyup(function() {
-      var search = $(this).val();
-      $.ajax({
-        url: "<?= base_url() ?>user/search",
-        type: "post",
-        data: {
-          search: search,
-        },
-        success: function(data) {
-          $('#result').html(data);
-        }
-      })
-    });
-  });
-</script>
+                                </div>

@@ -1,39 +1,107 @@
-<footer class="footer footer-black  footer-white ">
-    <div class="container-fluid">
-        <div class="row">
-            <nav class="footer-nav">
-                <ul>
-                    <li><a href="https://www.creative-tim.com/license" target="_blank">Creative Tim
-                            Licenses</a></li>
-                </ul>
-            </nav>
-            <div class="credits ml-auto">
-                <span class="copyright">
-                    © <script>
-                    document.write(new Date().getFullYear())
-                    </script>, Bootstarp created by Creative Tim. Logic written by Feisal Jauhari
-                </span>
-            </div>
-        </div>
+<!-- Footer opened -->
+<div class="main-footer ht-40">
+    <div class="container-fluid pd-t-0-f ht-100p">
+        <span>Copyright © 2022 <a href="#">Universitas Gunadarma</a>. Designed by <a
+                href="https://www.streamzinu.com/">Streamzinu</a> All rights reserved.</span>
     </div>
-</footer>
 </div>
+<!-- Footer closed -->
+
 </div>
-<!--   Core JS Files   -->
-<script src="<?= base_url() ?>assets/js/core/jquery.min.js"></script>
-<script src="<?= base_url() ?>assets/js/core/popper.min.js"></script>
-<script src="<?= base_url() ?>assets/js/core/bootstrap.min.js"></script>
-<script src="<?= base_url() ?>assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
-<!--  Google Maps Plugin    -->
-<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
-<!-- Chart JS -->
-<script src="<?= base_url() ?>assets/js/plugins/chartjs.min.js"></script>
-<!--  Notifications Plugin    -->
-<script src="<?= base_url() ?>assets/js/plugins/bootstrap-notify.js"></script>
-<!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
-<script src="<?= base_url() ?>assets/js/paper-dashboard.min.js?v=2.0.1" type="text/javascript"></script>
-<!-- Paper Dashboard DEMO methods, don't include it in your project! -->
-<script src="<?= base_url() ?>assets/demo/demo.js"></script>
+<!-- End Page -->
+
+<!-- Back-to-top -->
+<a href="#top" id="back-to-top"><i class="las la-angle-double-up"></i></a>
+
+<!-- JQuery min js -->
+<script src="<?= base_url() ?>assets/plugins/jquery/jquery.min.js"></script>
+
+<!--Internal  Datepicker js -->
+<script src="<?= base_url() ?>assets/plugins/jquery-ui/ui/widgets/datepicker.js"></script>
+
+<!-- Bootstrap Bundle js -->
+<script src="<?= base_url() ?>assets/plugins/bootstrap/js/popper.min.js"></script>
+<script src="<?= base_url() ?>assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!--Internal  Chart.bundle js -->
+<script src="<?= base_url() ?>assets/plugins/chart.js/Chart.bundle.min.js"></script>
+
+<!-- Ionicons js -->
+<script src="<?= base_url() ?>assets/plugins/ionicons/ionicons.js"></script>
+
+<!-- Moment js -->
+<script src="<?= base_url() ?>assets/plugins/moment/moment.js"></script>
+
+<!--Internal  jquery.maskedinput js -->
+<script src="<?= base_url() ?>assets/plugins/jquery.maskedinput/jquery.maskedinput.js"></script>
+
+<!--Internal  spectrum-colorpicker js -->
+<script src="<?= base_url() ?>assets/plugins/spectrum-colorpicker/spectrum.js"></script>
+
+<!-- Internal Select2.min js -->
+<script src="<?= base_url() ?>assets/plugins/select2/js/select2.min.js"></script>
+
+<!--Internal Sparkline js -->
+<script src="<?= base_url() ?>assets/plugins/jquery-sparkline/jquery.sparkline.min.js"></script>
+
+<!-- Moment js -->
+<script src="<?= base_url() ?>assets/plugins/raphael/raphael.min.js"></script>
+
+<!--Internal Apexchart js-->
+<script src="<?= base_url() ?>assets/js/apexcharts.js"></script>
+
+<!-- Rating js-->
+<script src="<?= base_url() ?>assets/plugins/rating/jquery.rating-stars.js"></script>
+<script src="<?= base_url() ?>assets/plugins/rating/jquery.barrating.js"></script>
+
+<!--Internal  Perfect-scrollbar js -->
+<script src="<?= base_url() ?>assets/plugins/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+<script src="<?= base_url() ?>assets/plugins/perfect-scrollbar/p-scroll.js"></script>
+
+<!-- Eva-icons js -->
+<script src="<?= base_url() ?>assets/js/eva-icons.min.js"></script>
+
+<!-- right-sidebar js -->
+<script src="<?= base_url() ?>assets/plugins/sidebar/sidebar.js"></script>
+<script src="<?= base_url() ?>assets/plugins/sidebar/sidebar-custom.js"></script>
+
+<!-- Sticky js -->
+<script src="<?= base_url() ?>assets/js/sticky.js"></script>
+<script src="<?= base_url() ?>assets/js/modal-popup.js"></script>
+
+<!-- Left-menu js-->
+<script src="<?= base_url() ?>assets/plugins/side-menu/sidemenu.js"></script>
+
+<!-- Internal Map -->
+<script src="<?= base_url() ?>assets/plugins/jqvmap/jquery.vmap.min.js"></script>
+<script src="<?= base_url() ?>assets/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+
+<!-- Internal Data tables -->
+<script src="<?= base_url() ?>assets/plugins/datatable/js/jquery.dataTables.min.js"></script>
+<script src="<?= base_url() ?>assets/plugins/datatable/datatables.min.js"></script>
+<script src="<?= base_url() ?>assets/plugins/datatable/js/dataTables.bootstrap5.js"></script>
+<script src="<?= base_url() ?>assets/plugins/datatable/js/dataTables.buttons.min.js"></script>
+<script src="<?= base_url() ?>assets/plugins/datatable/js/buttons.bootstrap5.min.js"></script>
+<script src="<?= base_url() ?>assets/plugins/datatable/js/jszip.min.js"></script>
+<script src="<?= base_url() ?>assets/plugins/datatable/js/buttons.html5.min.js"></script>
+<script src="<?= base_url() ?>assets/plugins/datatable/js/buttons.print.min.js"></script>
+<script src="<?= base_url() ?>assets/plugins/datatable/js/buttons.colVis.min.js"></script>
+<script src="<?= base_url() ?>assets/plugins/datatable/pdfmake/pdfmake.min.js"></script>
+<script src="<?= base_url() ?>assets/plugins/datatable/pdfmake/vfs_fonts.js"></script>
+
+<!--Internal  Datatable js -->
+<script src="<?= base_url() ?>assets/js/table-data.js"></script>
+
+<!--Internal  index js -->
+<script src="<?= base_url() ?>assets/js/index.js"></script>
+
+<!-- Apexchart js-->
+<script src="<?= base_url() ?>assets/js/apexcharts.js"></script>
+<script src="<?= base_url() ?>assets/js/jquery.vmap.sampledata.js"></script>
+
+<!-- custom js -->
+<script src="<?= base_url() ?>assets/js/custom.js"></script>
+
 </body>
 
 </html>

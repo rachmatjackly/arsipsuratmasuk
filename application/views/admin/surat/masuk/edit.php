@@ -1,7 +1,19 @@
-<div class="content">
+<!-- container -->
+<div class="container-fluid">
+
+    <!-- breadcrumb -->
+    <div class="breadcrumb-header justify-content-between">
+        <div class="left-content">
+            <div>
+                <h2 class="main-content-title tx-24 mg-b-1 mg-b-lg-1"><?= $title ?></h2>
+            </div>
+        </div>
+    </div>
+    <!-- breadcrumb -->
 
     <!-------------INPUT--------->
-    <form method="post" enctype="multipart/form-data" action="<?= base_url() ?>surat/update_surat_masuk/<?= $data[0]->nm_sr_masuk ?>">
+    <form method="post" enctype="multipart/form-data"
+        action="<?= base_url() ?>surat/update_surat_masuk/<?= $data[0]->nm_sr_masuk ?>">
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
@@ -10,7 +22,8 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label>Nomor Surat Masuk</label>
-                                    <input readonly type="text" required class="form-control" value="<?= $data[0]->nm_sr_masuk ?>" name="0">
+                                    <input readonly type="text" required class="form-control"
+                                        value="<?= $data[0]->nm_sr_masuk ?>" name="0">
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -55,18 +68,28 @@
                                         value="<?= $data[0]->penerima_masuk ?>" name="7">
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Dokumen Surat Masuk</label>
-                                    <p><?= $data[0]->dok_msk ?></p>
-                                    <input type="file" name="file1" style="opacity: 100;position: inherit">
-                                    <span style="font-size:12px;color:red" >Note: Jika dokumen tidak diedit dibiarkan kosong saja.</span>
+                            <div class="row row-sm">
+                            <label>Dokumen Surat Keluar</label>
+                                <p><?= $data[0]->dok_msk ?></p>
+                                <div class="col-sm-7 col-md-6 col-lg-4">
+                                    <div class="input-group file-browser">
+                                        <input type="text" class="form-control border-right-0 browse-file"
+                                            placeholder="choose" readonly>
+                                        <label class="input-group-btn">
+                                            <span class="btn btn-default">
+                                                Browse <input type="file" name="file1" class="d-none" multiple>
+                                            </span>
+                                        </label>
+                                    </div>
                                 </div>
+                                <span style="font-size:12px;color:red">Note: Jika dokumen tidak diedit dibiarkan
+                                    kosong saja.</span>
                             </div>
                             <div class="col-md-12 d-flex justify-content-center">
                                 <div class="form-group">
                                     <label></label><br>
-                                    <button class="btn btn-primary btn-round" name="simpan" type="submit">Update</button>
+                                    <button class="btn btn-primary btn-round" name="simpan"
+                                        type="submit">Update</button>
                                 </div>
                             </div>
                         </div>
@@ -75,6 +98,7 @@
             </div>
         </div>
     </form>
-   
 
+
+</div>
 </div>

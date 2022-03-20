@@ -2,123 +2,168 @@
 <html lang="en">
 
 <head>
-<meta charset="utf-8" />
-<link rel="apple-touch-icon" sizes="76x76" href="<?=base_url()?>assets/img/apple-icon.png">
-<link rel="icon" type="image/png" href="<?=base_url()?>assets/img/favicon.png">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<title>
-    Admin Page
-</title>
-<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
-name='viewport' />
-<!-----------Rich Text script------------>
-<script src="https://cdn.ckeditor.com/4.9.2/standard/ckeditor.js"></script>
-<!--     Fonts and icons     -->
-<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<!-- CSS Files -->
-<link href="<?= base_url() ?>assets/css/bootstrap.min.css" rel="stylesheet" />
-<link href="<?= base_url() ?>assets/css/paper-dashboard.css?v=2.0.1" rel="stylesheet" />
-<!-- CSS Just for demo purpose, don't include it in your project -->
-<link href="<?= base_url() ?>assets/demo/demo.css" rel="stylesheet" />
-<script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>
+
+    <meta charset="UTF-8">
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=9" />
+    <meta name="Description" content="Bootstrap Responsive Admin Web Dashboard HTML5 Template">
+    <meta name="Author" content="Spruko Technologies Private Limited">
+    <meta name="Keywords"
+        content="admin,admin dashboard,admin dashboard template,admin panel template,admin template,admin theme,bootstrap 4 admin template,bootstrap 4 dashboard,bootstrap admin,bootstrap admin dashboard,bootstrap admin panel,bootstrap admin template,bootstrap admin theme,bootstrap dashboard,bootstrap form template,bootstrap panel,bootstrap ui kit,dashboard bootstrap 4,dashboard design,dashboard html,dashboard template,dashboard ui kit,envato templates,flat ui,html,html and css templates,html dashboard template,html5,jquery html,premium,premium quality,sidebar bootstrap 4,template admin bootstrap 4" />
+
+    <!-- Title -->
+    <title> Arsip Surat Masuk </title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="<?= base_url() ?>assets/img/brand/logo.png" type="image/x-icon" />
+
+    <!-- Icons css -->
+    <link href="<?= base_url() ?>assets/css/icons.css" rel="stylesheet">
+
+    <!-- Bootstrap css -->
+    <link href="<?= base_url() ?>assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Internal Data table css -->
+    <link href="<?= base_url() ?>assets/plugins/datatable/datatables.min.css" rel="stylesheet" />
+    <link href="<?= base_url() ?>assets/plugins/datatable/responsive.dataTables.min.css" rel="stylesheet">
+    <link href="<?= base_url() ?>assets/plugins/datatable/responsive.bootstrap5.css" rel="stylesheet">
+    <link href="<?= base_url() ?>assets/plugins/datatable/css/buttons.bootstrap5.min.css" rel="stylesheet">
+    <link href="<?= base_url() ?>assets/plugins/datatable/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+    <link href="<?= base_url() ?>assets/plugins/datatable/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="<?= base_url() ?>assets/plugins/select2/css/select2.min.css" rel="stylesheet">
+
+    <!-- Internal Select2 css -->
+    <link href="<?= base_url() ?>assets/plugins/select2/css/select2.min.css" rel="stylesheet">
+
+    <!--Internal  Date time picker-slider css -->
+    <link href="<?= base_url() ?>assets/plugins/amazeui-datetimepicker/css/amazeui.datetimepicker.css" rel="stylesheet">
+    <link href="<?= base_url() ?>assets/plugins/jquery-simple-datetimepicker/jquery.simple-dtpicker.css"
+        rel="stylesheet">
+    <link href="<?= base_url() ?>assets/plugins/pickerjs/picker.min.css" rel="stylesheet">
+
+    <!-- Internal Spectrum-colorpicker css -->
+    <link href="<?= base_url() ?>assets/plugins/spectrum-colorpicker/spectrum.css" rel="stylesheet">
+
+    <!--  Right-sidemenu css -->
+    <link href="<?= base_url() ?>assets/plugins/sidebar/sidebar.css" rel="stylesheet">
+
+    <!--  Owl-carousel css-->
+    <link href="<?= base_url() ?>assets/plugins/owl-carousel/owl.carousel.css" rel="stylesheet" />
+
+    <!--- Internal Sweet-Alert css-->
+    <link href="<?= base_url() ?>assets/plugins/sweet-alert/sweetalert.css" rel="stylesheet">
+
+    <!-- P-scroll bar css-->
+    <link href="<?= base_url() ?>assets/plugins/perfect-scrollbar/p-scrollbar.css" rel="stylesheet" />
+
+    <!--  Right-sidemenu css -->
+    <link href="<?= base_url() ?>assets/plugins/sidebar/sidebar.css" rel="stylesheet">
+
+    <!--Internal  Quill css -->
+    <link href="../../assets/plugins/quill/quill.snow.css" rel="stylesheet">
+    <link href="../../assets/plugins/quill/quill.bubble.css" rel="stylesheet">
+
+    <!-- Sidemenu css -->
+    <link rel="stylesheet" href="<?= base_url() ?>assets/css/sidemenu.css">
+
+    <!-- Maps css -->
+    <link href="<?= base_url() ?>assets/plugins/jqvmap/jqvmap.min.css" rel="stylesheet">
+
+    <!-- style css -->
+    <link href="<?= base_url() ?>assets/css/style.css" rel="stylesheet">
+    <link href="<?= base_url() ?>assets/css/style-dark.css" rel="stylesheet">
+    <link href="<?= base_url() ?>assets/css/boxed.css" rel="stylesheet">
+    <link href="<?= base_url() ?>assets/css/dark-boxed.css" rel="stylesheet">
+
+    <!---Skinmodes css-->
+    <link href="<?= base_url() ?>assets/css/skin-modes.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>
 </head>
 
-<body class="">
-<div class="wrapper" style="background-color: #f4f3ef">
-<div class="sidebar" data-color="white" data-active-color="danger">
-<div class="logo">
-    <a href="https://www.creative-tim.com" class="simple-text logo-mini">
-        <div class="logo-image-small">
-            <img src="<?= base_url() ?>assets/img/logo-small.png">
-        </div>
-        <!-- <p>CT</p> -->
-    </a>
-    <a class="simple-text logo-normal">
-        UNIV. GUNADARMA
-        <!-- <div class="logo-image-big">
-<img src="../assets/img/logo-big.png">
-</div> -->
-    </a>
-</div>
-<div class="sidebar-wrapper">
-    <ul class="nav">
-        <li class="<?= $nav[0] ?>">
-            <a href="<?= base_url() ?>admin">
-                <i class="nc-icon nc-bank"></i>
-                <p>Home</p>
-            </a>
-        </li>
-        <li class="<?= $nav[1] ?>">
-            <a href="<?= base_url() ?>admin/surat_keluar">
-                <i class="nc-icon nc-minimal-up"></i>
-                <p>Surat Keluar</p>
-            </a>
-        </li>
-        <li class="<?= $nav[2] ?>">
-            <a href="<?= base_url() ?>admin/surat_masuk">
-                <i class="nc-icon nc-minimal-down"></i>
-                <p>Surat Masuk</p>
-            </a>
-        </li>
-        <li class="<?= $nav[3] ?>">
-            <a href="<?= base_url() ?>admin/pengumuman">
-                <i class="nc-icon nc-bullet-list-67"></i>
-                <p>Pengumuman</p>
-            </a>
-        </li>
-        <?php if($this->session->status == 1) : ?>
-        <li class="<?= $nav[4] ?>">
-            <a href="<?= base_url() ?>admin/user">
-                <i class="nc-icon nc-satisfied"></i>
-                <p>Admin</p>
-            </a>
-        </li>
-        <?php endif ?>
-        <li>
-            <a href="<?= base_url() ?>admin/logout">
-                <i class="nc-icon nc-button-power"></i>
-                <p>Logout</p>
-            </a>
-        </li>
-    </ul>
-</div>
-</div>
+<body class="main-body app sidebar-mini">
 
-<div class="main-panel">
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
-    <div class="container-fluid">
-        <div class="navbar-wrapper">
-            <div class="navbar-toggle">
-                <button type="button" class="navbar-toggler">
-                    <span class="navbar-toggler-bar bar1"></span>
-                    <span class="navbar-toggler-bar bar2"></span>
-                    <span class="navbar-toggler-bar bar3"></span>
-                </button>
-            </div>
-            <a class="navbar-brand" href="javascript:;"><?= $title ?></a>
-        </div>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
-            aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-bar navbar-kebab"></span>
-            <span class="navbar-toggler-bar navbar-kebab"></span>
-            <span class="navbar-toggler-bar navbar-kebab"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-end" id="navigation">
-            <ul class="navbar-nav">
-                <li class="nav-item btn-rotate dropdown">
-                    <a class="nav-link" href="#">
-                        <p>
-                            <span class=" d-md-block"><?php echo $this->session->nama ?></span>
-                        </p>
-                        <i class="nc-icon nc-single-02"></i>
-                    </a>
-                </li>
-            </ul>
-        </div>
+    <!-- Loader -->
+    <div id="global-loader">
+        <img src="<?= base_url() ?>assets/img/loader.svg" class="loader-img" alt="Loader">
     </div>
-</nav>
-<!-- End Navbar -->
+    <!-- /Loader -->
+
+    <!-- Page -->
+    <div class="page">
+
+        <!-- main-sidebar -->
+        <div class="app-sidebar__overlay" data-bs-toggle="sidebar"></div>
+        <aside class="app-sidebar sidebar-scroll">
+            <div class="main-sidebar-header active">
+                <a class="desktop-logo logo-light active" href="index.html"><img width="120"
+                        src="<?= base_url() ?>assets/img/brand/logo-small.png" class="main-logo" alt="logo"></a>
+                <a class="desktop-logo logo-dark active" href="index.html"><img
+                        src="<?= base_url() ?>assets/img/brand/logo-small.png" class="main-logo dark-theme"
+                        alt="logo"></a>
+                <a class="logo-icon mobile-logo icon-light active" href="index.html"><img
+                        src="<?= base_url() ?>assets/img/brand/logo.png" class="logo-icon" alt="logo"></a>
+                <a class="logo-icon mobile-logo icon-dark active" href="index.html"><img
+                        src="<?= base_url() ?>assets/img/brand/logo.png" class="logo-icon dark-theme" alt="logo"></a>
+            </div>
+            <div class="main-sidemenu">
+                <ul class="side-menu">
+                    <li class="side-item side-item-category">Main</li>
+                    <li class="slide">
+                        <a class="side-menu__item" href="<?= base_url()?>admin"><i
+                                class="side-menu__icon mdi mdi-bank"></i><span class="side-menu__label">Home</span></a>
+                        <a class="side-menu__item" href="<?= base_url() ?>admin/surat_keluar"><i
+                                class="side-menu__icon si si-arrow-up"></i><span class="side-menu__label">Surat
+                                Keluar</span></a>
+                        <a class="side-menu__item" href="<?= base_url() ?>admin/surat_masuk"><i
+                                class="side-menu__icon si si-arrow-down"></i><span class="side-menu__label">Surat
+                                Masuk</span></a>
+                        <a class="side-menu__item" href="<?= base_url() ?>admin/pengumuman"><i
+                                class="side-menu__icon fa fa-list"></i><span
+                                class="side-menu__label">Pengumuman</span></a>
+                        <a class="side-menu__item" href="<?= base_url() ?>admin/user"><i
+                                class="side-menu__icon mdi mdi-account-plus"></i><span
+                                class="side-menu__label">Admin</span></a>
+                        <a class="side-menu__item" href="<?= base_url() ?>admin/logout"><i
+                                class="side-menu__icon si si-logout"></i><span
+                                class="side-menu__label">Logout</span></a>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+        <!-- main-sidebar -->
+
+        <!-- main-content -->
+        <div class="main-content app-content">
+
+            <!-- main-header -->
+            <div class="main-header sticky side-header nav nav-item">
+                <div class="container-fluid">
+                    <div class="main-header-left ">
+                        <div class="responsive-logo">
+                            <a href="index.html"><img src="<?= base_url() ?>assets/img/brand/logo.png" class="logo-1"
+                                    alt="logo"></a>
+                            <a href="index.html"><img src="<?= base_url() ?>assets/img/brand/logo-white.png"
+                                    class="dark-logo-1" alt="logo"></a>
+                            <a href="index.html"><img src="<?= base_url() ?>assets/img/brand/favicon.png" class="logo-2"
+                                    alt="logo"></a>
+                            <a href="index.html"><img src="<?= base_url() ?>assets/img/brand/favicon-white.png"
+                                    class="dark-logo-2" alt="logo"></a>
+                        </div>
+                        <div class="app-sidebar__toggle" data-bs-toggle="sidebar">
+                            <a class="open-toggle" href="#"><i class="header-icon fe fe-align-left"></i></a>
+                            <a class="close-toggle" href="#"><i class="header-icons fe fe-x"></i></a>
+                        </div>
+                    </div>
+                    <div class="main-header-right">
+                        <ul class="nav nav-item  navbar-nav-right ms-auto">
+                            <li class="d-flex">
+                                <a class="profile-user d-flex" href=""><i class="fs-3 my-auto mdi mdi-account"></i>
+                                    <h6 class="my-auto ms-3"><?= $this->session->nama ?></h6>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- /main-header -->
